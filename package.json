@@ -1,0 +1,16 @@
+{
+  "name": "kosame-documents",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "bun run build && wrangler dev",
+    "deploy": "bun run build && wrangler deploy"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.4",
+    "wrangler": "^4.135.0"
+  }
+}
