@@ -56,7 +56,7 @@ import { createContext } from "kosame";
 import { db } from "./db.js";
 import { User } from "./models/user.js";
 
-export const context = createContext(db, { users: User, posts: Post });
+export const context = createContext(db, { users: User });
 ```
 
 ## Crud操作
