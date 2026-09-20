@@ -4,22 +4,9 @@ title: クイックスタート
 
 # クイックスタート
 
-## Kosameのインストール
+## フロー
 
-### bun
-
-```bash
-bun add kosame
-```
-
-## ドライバーのインストール
-
-### node-postgres
-
-```bash
-bun add drizzle-orm@^0.45.2 pg
-bun add -D drizzle-kit@^0.45.2 @types/pg
-```
+データベース接続 -> Model定義 -> Context作成 -> Crud操作
 
 ## データベース接続
 
@@ -59,8 +46,9 @@ import { User } from "./models/user.js";
 export const context = createContext(db, { users: User });
 ```
 
-## Crud操作
+## CRUD操作
 
 ```ts
 const user = await context.users.add({ name: "kosame" });
+const found = await context.users.find(user.id);
 ```
