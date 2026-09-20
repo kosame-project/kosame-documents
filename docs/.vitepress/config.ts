@@ -21,7 +21,7 @@ export default defineConfig({
       link: "/en/",
       themeConfig: {
         nav: [
-          { text: "Guide", link: "/en/getting-started/installation" },
+          { text: "Guide", link: "/en/kosame" },
           { text: "GitHub", link: "https://github.com/kosame-project/kosame-orm" },
           { text: "npm", link: "https://www.npmjs.com/package/kosame" },
         ],
@@ -29,6 +29,7 @@ export default defineConfig({
           {
             text: "Getting Started",
             items: [
+              { text: "What is Kosame?", link: "/en/kosame" },
               { text: "Installation", link: "/en/getting-started/installation" },
               { text: "Quick Start", link: "/en/getting-started/quick-start" },
             ],
@@ -69,7 +70,7 @@ export default defineConfig({
       link: "/ja/",
       themeConfig: {
         nav: [
-          { text: "ガイド", link: "/ja/getting-started/installation" },
+          { text: "ガイド", link: "/ja/kosame" },
           { text: "GitHub", link: "https://github.com/kosame-project/kosame-orm" },
           { text: "npm", link: "https://www.npmjs.com/package/kosame" },
         ],
@@ -77,6 +78,7 @@ export default defineConfig({
           {
             text: "はじめに",
             items: [
+              { text: "Kosameとは?", link: "/ja/kosame" },
               { text: "インストール", link: "/ja/getting-started/installation" },
               { text: "クイックスタート", link: "/ja/getting-started/quick-start" },
             ],
