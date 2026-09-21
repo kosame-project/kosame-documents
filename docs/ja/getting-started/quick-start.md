@@ -14,7 +14,6 @@ title: クイックスタート
 
 ```
 src/
-src/
 ├── data/
 │   ├── db.ts
 │   └── context.ts
