@@ -10,7 +10,20 @@ title: クイックスタート
 
 ## ディレクトリ構造
 
+クイックスタートではこのようなディレクトリ構造で作成していきます。
+
+```
+src/
+├── data/
+│   ├── db.ts
+│   └── context.ts
+└─ models/
+  └─ user.ts
+```
+
 ## データベース接続
+
+### data/db.ts
 
 ```ts
 import { drizzle } from "drizzle-orm/node-postgres";
@@ -21,6 +34,8 @@ export const db = drizzle(pool);
 ```
 
 ## Model定義
+
+### models/user.ts
 
 ```ts
 import { Model } from "kosame";
@@ -40,10 +55,12 @@ export class User extends Model {
 
 ## Context作成
 
+### data/context.ts
+
 ```ts
 import { createContext } from "kosame";
 import { db } from "./db.js";
-import { User } from "./models/user.js";
+import { User } from "../models/user.js";
 
 export const context = createContext(db, { users: User });
 ```
