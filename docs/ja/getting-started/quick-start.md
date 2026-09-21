@@ -14,11 +14,12 @@ title: クイックスタート
 
 ```
 src/
+src/
 ├── data/
 │   ├── db.ts
 │   └── context.ts
-└─ models/
-  └─ user.ts
+└── models/
+    └── user.ts
 ```
 
 ## データベース接続
