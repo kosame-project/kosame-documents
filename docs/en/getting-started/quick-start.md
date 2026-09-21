@@ -4,6 +4,10 @@ title: QuickStart
 
 # QuickStart
 
+## Flow
+
+Database Connection -> Creating a Model -> Context Creation -> CRUD Operations
+
 ## Directory Structure
 
 In the Quick Start, we'll create the project using this directory structure.
