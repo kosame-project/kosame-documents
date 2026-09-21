@@ -1,12 +1,12 @@
 ---
-title: Modelの作成
+title: Modelの定義
 ---
 
 # Modelの定義
 
 ## Modelについて
 
-KosameにはDrizzleにはないModelの概念があります。これは他のORM、EF-Coreやactive recordなどにあるModelと近いものでこのModelにより設計に近い実装にすることができKosameの主な機能です。
+KosameにはDrizzleにはないModelの概念があります。これは他のORM、EF Coreやactive recordなどにあるModelと近いものでこのModelにより設計に近い実装にすることができKosameの主な機能です。
 
 ## 作成方法
 
@@ -15,7 +15,7 @@ Kosameにおいて基本的にはModelディレクトリを作成し、そのデ
 ```
 src/
 └── models/
-    └── tables.ts
+    └── user.ts
 ```
 
 ### Modelの書き方
@@ -53,3 +53,8 @@ export class User extends Model {
   static table = usersTable;
 }
 ```
+
+## declareを書く理由
+
+Modelを作成する時にクラス内にdeclareで宣言することがあります。
+これは

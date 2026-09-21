@@ -37,7 +37,7 @@ export default defineConfig({
           {
             text: "Essential",
             items: [
-              { text: "Defining a Model", link: "/en/essential/model" },
+              { text: "Creating a Model", link: "/en/essential/model" },
               { text: "Creating a Context", link: "/en/essential/context" },
               { text: "CRUD", link: "/en/essential/crud" },
               { text: "Relations", link: "/en/essential/relations" },
