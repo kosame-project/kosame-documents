@@ -34,3 +34,22 @@ export class User extends Model {
   declare name: string;
 }
 ```
+
+## To Those Who Think This Appears to Be a Duplicate Definition
+
+If you feel that the definition in the previous chapter is redundant, I recommend the following approach.
+You can resolve this redundancy by retrieving the type from the table created using Drizzle’s `InferSelectModel` and assigning it to the class you created.
+
+```ts
+import { InferSelectModel } from "drizzle-orm";
+
+export const usersTable = pgTable("users", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+});
+
+export interface User extends InferSelectModel<typeof usersTable> {}
+export class User extends Model {
+  static table = usersTable;
+}
+```
