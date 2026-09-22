@@ -18,6 +18,8 @@ src/
 
 ### Contextの書き方
 
+`createContext`関数を呼び出しdbのtableと紐付けさせます。
+
 ```ts
 import { createContext } from "kosame";
 import { db } from "./db.js";
