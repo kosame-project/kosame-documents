@@ -18,7 +18,7 @@ src/
 
 ### Contextの書き方
 
-`createContext`関数を呼び出しdbのtableと紐付けさせます。
+`createContext`関数を呼び出しdbとModelを紐付けます。
 
 ```ts
 import { createContext } from "kosame";
