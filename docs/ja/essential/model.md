@@ -59,4 +59,8 @@ export class User extends Model {
 Modelを作成する時にクラス内にdeclareで宣言することがあります。
 declareがトランスパイラ時に消えてしまいます。これでは宣言の意味がないように思われますがdeclareの代わりに`name : string = ""`のように書いてしまうとトランスパイラ後に初期値として存在する可能性があります。これはKosameの実行時に自動で値が入ると衝突する可能性があるためdeclareで宣言し、あえてトランスパイラ時に消し、衝突を回避します。
 
-## Modelをnewで作れない
+## newで直接作成できない理由
+
+Model作成時、newで直接作成できません。
+なぜnewの宣言ができないかとこれはKosameのContextベースという考えがあります。
+Kosameは基本的にActive recordなどのModelで全て書いてしまうという考えを捨てておりContextを必ず経由させていますnewで作成してしまうとContext経由し生成ということができずContextベースを維持するためnewでの作成ができません
