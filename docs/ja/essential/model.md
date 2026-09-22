@@ -63,4 +63,4 @@ declareがトランスパイラ時に消えてしまいます。これでは宣�
 
 Model作成時、newで直接作成できません。
 なぜnewでの直接作成ができないかというと、Kosameが持つContextベースという設計思想が理由です。
-Kosameは、Active Recordのように、Modelで全て書いてしまう、という考えを捨てておりContextを必ず経由させています。newで作成してしまうと、Context経由し生成ということができずContextベースを維持するためnewでの作成ができません。
+Kosameは、Active Recordのように、Modelで全て書いてしまう、という考えを捨てておりContextを必ず経由させています。newで作成してしまうと、Context経由し生成ということができず。Contextベースを維持するためnewでの作成ができません。
