@@ -23,5 +23,7 @@ import { createContext } from "kosame";
 import { db } from "./db.js";
 import { User } from "../models/user.js";
 
-export const context = createContext(db, { users: User });
+export const context = createContext(db, {
+  users: User,
+});
 ```
