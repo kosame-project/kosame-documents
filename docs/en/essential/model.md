@@ -17,3 +17,20 @@ src/
 └── models/
     └── user.ts
 ```
+
+## How to Write a Model
+
+When creating a model, after defining the table in Drizzle, extend the model class from the table you want to create. Then, within the created class, link the table to the model using a declaration such as `static table = userTable`.
+
+```ts
+export const usersTable = pgTable("users", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+});
+
+export class User extends Model {
+  static table = usersTable;
+  declare id: number;
+  declare name: string;
+}
+```
