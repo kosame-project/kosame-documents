@@ -53,3 +53,14 @@ export class User extends Model {
   static table = usersTable;
 }
 ```
+
+## Reasons for Using “declare”
+
+When creating a model, you may use the `declare` keyword to declare variables within a class.
+The `declare` keyword is removed during transpilation. While this may seem to defeat the purpose of the declaration, if you were to write `name : string = “”` instead of using `declare`, the initial value might remain after transpilation. Since this could cause conflicts with values automatically assigned by Kosame at runtime, we use `declare` to intentionally have the declaration removed during transpilation and avoid such conflicts.
+
+## Why You Can't Create It Directly with “new”
+
+You cannot create a Model directly using `new`.
+The reason you cannot create a Model directly using `new` is Kosame’s context-based design philosophy.
+Kosame has abandoned the approach of defining everything in the Model—as in Active Record—and instead requires that all operations go through the Context. If you create a Model directly using `new`, it cannot be generated via the Context. To maintain the context-based architecture, you cannot create Models using `new`.
