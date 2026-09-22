@@ -6,7 +6,7 @@ title: Modelの定義
 
 ## Modelについて
 
-KosameにはDrizzleにはないModelの概念があります。これは他のORM、EF Coreやactive recordなどにあるModelと近いものでこのModelにより設計に近い実装にすることができKosameの主な機能です。
+KosameにはDrizzleにはないModelの概念があります。これは他のORM、EF CoreやActive RecordなどにあるModelと近いものでこのModelにより設計に近い実装にすることができKosameの主な機能です。
 
 ## 作成方法
 
