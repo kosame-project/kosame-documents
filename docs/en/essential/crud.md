@@ -35,3 +35,13 @@ In terms of their roles, `update()` handles updates, while `add()` handles addit
 ```ts
 await user.update({ name: "ooame" });
 ```
+
+### save()
+
+The `save()` method saves data to the database.
+`save()` takes no arguments; instead, if you modify the instance's properties directly before calling it, the current values are written to the database as-is.
+
+```ts
+user.name = "gouu";
+await user.save();
+```
