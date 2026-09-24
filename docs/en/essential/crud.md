@@ -45,3 +45,13 @@ The `save()` method saves data to the database.
 user.name = "gouu";
 await user.save();
 ```
+
+### reload()
+
+The `reload()` method retrieves the latest values from the database.
+`reload()` does not return a value; instead, the calling instance itself is updated with the latest values.
+Unlike `find()`, which returns `undefined` if no matching row is found, `reload()` throws an exception.
+
+```ts
+await user.reload();
+```
