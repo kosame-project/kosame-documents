@@ -27,3 +27,7 @@ const found = await context.users.find(user.id);
 The `update()` method is used to update the database.
 Just like with `add()`, you pass the column values as an object to the `update()` method.
 `update()` does not return a value; instead, the calling instance itself is updated with the new values.
+
+#### Differences from `add()`
+
+In terms of their roles, `update()` handles updates, while `add()` handles additions, but their syntax is quite similar. Unlike `add()`, `update()` performs the operation directly rather than through the context.
