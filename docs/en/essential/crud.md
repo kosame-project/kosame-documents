@@ -21,3 +21,9 @@ The `add()` method returns a Model instance that includes the values generated b
 ```ts
 const found = await context.users.find(user.id);
 ```
+
+### update()
+
+The `update()` method is used to update the database.
+Just like with `add()`, you pass the column values as an object to the `update()` method.
+`update()` does not return a value; instead, the calling instance itself is updated with the new values.
