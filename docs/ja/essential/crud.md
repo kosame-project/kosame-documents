@@ -55,3 +55,7 @@ await user.update({ name: "ooame" });
 user.name = "gouu";
 await user.save();
 ```
+
+### reload()
+
+`reload()`メソッドは、データベースから最新の値を再取得する操作です。
