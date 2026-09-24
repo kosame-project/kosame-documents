@@ -24,7 +24,9 @@ const user = await context.users.add({ name: "alice" });
 
 ### find()
 
-読み取り
+`find()`メソッドは、データーベスから値を読み取る操作です。
+`find()`の引数に、主キーの値だけを渡します。
+`find()`の返り値には、DBが生成した値も含めてModelインスタンスが返ってきます。見つからない場合にはundefiendが返ってきます。
 
 ```ts
 const found = await context.users.find(user.id);
