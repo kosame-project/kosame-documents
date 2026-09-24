@@ -19,7 +19,7 @@ Kosameは独自のCRUD操作を提供しています。
 `add()`の返り値には、DBが生成した値も含めてModelインスタンスが返ってきます。
 
 ```ts
-const user = await context.users.add({ name: "alice" });
+const user = await context.users.add({ name: "kosame" });
 ```
 
 ### find()
@@ -43,5 +43,14 @@ const found = await context.users.find(user.id);
 役割としては`update()`は更新処理で、`add()`は追加処理ですが書き方などもかなり近いです。`update()`は`add()`とは違いcontext経由ではなく直接の処理です。
 
 ```ts
-await user.update({ name: "alice2" });
+await user.update({ name: "ooame" });
+```
+
+### save()
+
+`save()`メソッドは、データベースに保存する操作です。
+
+```ts
+user.name = "gouu";
+await user.save();
 ```
