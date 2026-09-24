@@ -4,7 +4,7 @@ title: CRUD
 
 # CRUD
 
-データベースを操作するCRUD操作、Kosameはこの操作を独自で提供しております。
+Kosameは独自のCRUD操作を提供してます。
 
 ## CRUD操作の書き方
 
@@ -14,4 +14,12 @@ title: CRUD
 
 ```ts
 const user = await context.users.add({ name: "alice" });
+```
+
+### find()
+
+読み取り
+
+```ts
+const found = await context.users.find(user.id);
 ```
