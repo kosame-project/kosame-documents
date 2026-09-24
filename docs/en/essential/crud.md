@@ -22,6 +22,16 @@ The `add()` method returns a Model instance that includes the values generated b
 const found = await context.users.find(user.id);
 ```
 
+### find()
+
+The `find()` method retrieves a value from the database.
+Pass only the primary key value as an argument to `find()`.
+The `find()` method returns a Model instance if a match is found, and `undefined` if no match is found.
+
+```ts
+const found = await context.users.find(user.id);
+```
+
 ### update()
 
 The `update()` method is used to update the database.
