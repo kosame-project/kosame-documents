@@ -15,3 +15,17 @@ src/
 └── data/
     └── context.ts
 ```
+
+## How to Write a Context
+
+Call the `createContext` function to link the database and the model.
+
+```ts
+import { createContext } from "kosame";
+import { db } from "./db.js";
+import { User } from "../models/user.js";
+
+export const context = createContext(db, {
+  users: User,
+});
+```
