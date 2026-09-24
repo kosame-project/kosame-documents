@@ -29,3 +29,5 @@ export const context = createContext(db, {
   users: User,
 });
 ```
+
+### 一度だけ構築される
