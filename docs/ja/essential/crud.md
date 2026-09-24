@@ -69,7 +69,7 @@ await user.reload();
 ### delete()
 
 `delete()`メソッドはデータベースからインスタンスを削除する操作です。
-`delete()`の挙動はMixinsによって代わりmixinを使うとhardDelete(実際にDBから消す)からSoftDelete(deleteフラグを立てる)に変わることがあります。
+`delete()`の挙動はSoftDeletableというmixinを使うと変わります。通常delete()は実際にDBから削除しますが、SoftDeletableを適用すると論理削除（deletedAtに日時をセットするだけ）になり、本来の削除をしたい場合は新しく使えるようになる`hardDelete()`を使います。
 
 ```ts
 await user.delete();
