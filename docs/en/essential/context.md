@@ -16,7 +16,7 @@ src/
     └── context.ts
 ```
 
-## How to Write a Context
+### How to Write a Context
 
 Call the `createContext` function to link the database and the model.
 
@@ -29,3 +29,7 @@ export const context = createContext(db, {
   users: User,
 });
 ```
+
+### Built only once
+
+When `createContext(db, schema)` is called, the ModelCollection is created by iterating over the schema, and the property `context.users` is defined. This is built immediately, rather than through lazy loading using a proxy. If it were proxy-based, the contents of `context.users` would only be built the first time it is accessed. Kosame is designed so that `context.users` and other such objects exist as finalized objects at the moment `createContext()` is called. This stems from Kosame’s explicit design.
