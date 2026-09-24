@@ -55,3 +55,12 @@ Unlike `find()`, which returns `undefined` if no matching row is found, `reload(
 ```ts
 await user.reload();
 ```
+
+### delete()
+
+The `delete()` method removes an instance from the database.
+The behavior of `delete()` changes when you use a mixin called `SoftDeletable`. Normally, `delete()` actually deletes the instance from the database, but when `SoftDeletable` is applied, it performs a soft delete (simply setting a date and time in the `deletedAt` field). If you want to perform a hard delete, you use the `hardDelete()` method, which becomes available in this case.
+
+```ts
+await user.delete();
+```
