@@ -65,3 +65,5 @@ await user.save();
 ```ts
 await user.reload();
 ```
+
+### delete()
