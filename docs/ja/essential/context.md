@@ -31,3 +31,5 @@ export const context = createContext(db, {
 ```
 
 ### 一度だけ構築される
+
+`createContext(db, schema)`の呼び出し時にscheamaを反復してModelCollectionが作られ、`context.user`としてプロパティ定義します。これはproxyを使った複数生成ではなく即時構築で構築されます、もしproxyベースである場合`context.user`に初めてアクセスした瞬間に初めて中身が構築されます。Kosameは`createContext()`を読んだタイミングで`context.user`などの確定したオブジェクトとして存在しているという設計になっています。
