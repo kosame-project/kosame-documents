@@ -67,3 +67,5 @@ await user.reload();
 ```
 
 ### delete()
+
+`delete()`メソッドはデータベースからインスタンスを削除する操作です。
