@@ -31,3 +31,7 @@ const user = await context.users.add({ name: "alice" });
 ```ts
 const found = await context.users.find(user.id);
 ```
+
+### update()
+
+`update()`メソッドは、データベースの更新をする操作です。
