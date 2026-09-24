@@ -36,7 +36,7 @@ const found = await context.users.find(user.id);
 
 `update()`メソッドは、データベースの更新をする操作です。
 `update()`の引数に、`add()`と同じようにカラムの値をオブジェクトとして渡します。
-`update()`の返り値には、DBが生成した値も含めてModelインスタンスが返ってきます。
+`update()`の返り値には、呼び出し元のtable自身が新しい値に更新します。
 
 #### `add()`との違い
 
