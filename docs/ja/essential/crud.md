@@ -59,3 +59,9 @@ await user.save();
 ### reload()
 
 `reload()`メソッドは、データベースから最新の値を再取得する操作です。
+`reload()`の返り値としては、データベースの最新の値を返り値として返します。
+`find()`との返り値としての違いとしては、対象のrowがなかった場合`reload()`はerrorが返ってきます。
+
+```ts
+await user.reload();
+```
