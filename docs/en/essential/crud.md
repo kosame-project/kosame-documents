@@ -31,3 +31,7 @@ Just like with `add()`, you pass the column values as an object to the `update()
 #### Differences from `add()`
 
 In terms of their roles, `update()` handles updates, while `add()` handles additions, but their syntax is quite similar. Unlike `add()`, `update()` performs the operation directly rather than through the context.
+
+```ts
+await user.update({ name: "ooame" });
+```
