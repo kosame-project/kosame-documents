@@ -11,8 +11,9 @@ Kosameは`hasMany`/`belongsTo`によるリレーション機能を提供して�
 
 ### hasMany()
 
-hasManyリレーションでは多の方を表します
-使い方として`import { hasMany } from "kosame";`と`hasMany()`をインポートし使います
+`hasMany()`リレーションでは多の方を表します。
+使い方として`import { hasMany } from "kosame";`と`hasMany()`をインポートし使います。
+`hasMany()`の引数には対象にする関数と`FK`/`localKey`を書きます。
 
 ```ts
   static relations = { posts: hasMany(() => Post, { foreignKey: "authorId",})};
@@ -20,9 +21,9 @@ hasManyリレーションでは多の方を表します
 
 ### belongsTo()
 
-### static relations()
+### static relations
 
-### include()
+### include
 
 ## 既知の制限
 
