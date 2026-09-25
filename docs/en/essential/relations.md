@@ -30,3 +30,5 @@ The arguments for `belongsTo()` are a function that returns the target Model cla
 ```ts
 static relations = { author: belongsTo(() => User, { foreignKey: "authorId" }) };
 ```
+
+### include
