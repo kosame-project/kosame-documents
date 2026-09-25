@@ -19,3 +19,5 @@ The arguments for `hasMany()` are a function that returns the target Model class
 ```ts
   static relations = { posts: hasMany(() => Post, { foreignKey: "authorId",})};
 ```
+
+### belongsTo()
