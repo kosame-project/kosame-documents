@@ -15,7 +15,7 @@ You use `beforeCreate()` by `overriding` it in the Model class. It is automatica
 ```ts
 override async beforeCreate() {
   if (!this.name.includes("kosame")) {
-    throw new Error("名前にkosameを入れてください");
+    throw new Error("Name must contain kosame");
   }
 }
 ```
