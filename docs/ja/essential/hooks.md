@@ -10,12 +10,20 @@ KosameはCRUD操作の実行前に呼ばれ、例外を投げると書き込み�
 
 ### beforeCreate()
 
-`beforeCreate()`を呼び出すと、`context.<collection>.add`前に実行され例外を投げることで書き込みを中止させることができます。使い方は`add()`と同じで`beforeCreate()`を`context.<collection>.beforeCreate`で使用できます。
+`beforeCreate()`はModelクラスに`override`して使います。`context.<collection>.add()`が実行される前に自動的に呼ばれ、例外を投げることで書き込みを中止させることができます。
 
 ```ts
-const user = await context.users.beforeCreate({ name: "kosame" });
+override async beforeCreate(){
+  if(!this.name.includes("kosame")){
+    throw new Error("名前にkosameを入れてください");
+  }
+}
 ```
 
+`beforeCreate()`が呼ばれる時点で、`this.name`には既に挿入予定の値が入っています。この例のコードでは、名前に`kosame`が含まれていない場合に例外を投げて書き込みを中止させています。
+
 ### beforeUpdate(changes)
+
+`beforeUpdate()`はModelクラスに`override`して使います。`context.<collection>.update()`が実行される前に自動で呼ばれ、例外を投げることで書き込みを中止させることができます。
 
 ### beforeDelete()
