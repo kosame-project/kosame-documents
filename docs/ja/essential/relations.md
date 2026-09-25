@@ -33,7 +33,8 @@ static relations = { author: belongsTo(() => User, { foreignKey: "authorId" }) }
 
 ### include
 
-includeは`find()`で使う
+`include`は`find()`で取得する際にリレーション先も一緒に取得したい場合に使用します。
+`include`は`find()`の引数に`static relations`で定義したリレーションのキー名を配列で渡して使います。
 
 ```ts
 const user = await context.users.find(id, { include: ["posts"] });
