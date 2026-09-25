@@ -13,10 +13,10 @@ Kosameは`hasMany`/`belongsTo`によるリレーション機能を提供して�
 
 ### belongsTo()
 
-### static relations
+### static relations()
 
-### include
+### include()
 
-### 既知の制限
+## 既知の制限
 
 ## JOINを使わない理由
