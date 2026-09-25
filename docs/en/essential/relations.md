@@ -51,3 +51,8 @@ You need to be careful with systems—such as those designed to track which post
 ### Composite Keys Not Supported
 
 This feature does not support tables that treat multiple columns collectively as a primary key or foreign key.
+
+### Relationship with SoftDeletable
+
+When using `SoftDeletable` in a relationship, both `hasMany` and `belongsTo` automatically exclude rows that have been soft-deleted.
+There is no opt-out mechanism equivalent to `withDeleted` in `find()`.
