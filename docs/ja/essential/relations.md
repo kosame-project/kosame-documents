@@ -35,12 +35,17 @@ static relations = { author: belongsTo(() => User, { foreignKey: "authorId" }) }
 
 `include`は`find()`で取得する際にリレーション先も一緒に取得したい場合に使用します。
 `include`は`find()`の引数に`static relations`で定義したリレーションのキー名を配列で渡して使います。
-`include`に渡したキー名は、そのまま返ってきたインスタンスのプロパティ名になります。hasMany経由の場合は配列、belongsTo経由の場合は単一のインスタンス（無ければundefined）が入ります。
+`include`に渡したキー名は、そのまま返ってきたインスタンスのプロパティ名になります。`hasMany()`経由の場合は配列、`belongsTo()`経由の場合は単一のインスタンス（無ければ`undefined`）が入ります。
 
 ```ts
 const user = await context.users.find(id, { include: ["posts"] });
 ```
 
 ## 既知の制限
+
+### ネスト
+
+`include`ではリレーションをネストして取得することはできません。
+userがどのpostにcommentしたかをわかるようにするシステムなどはネストするため注意。
 
 ## JOINを使わない理由
