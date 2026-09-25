@@ -54,4 +54,7 @@ userがどのpostにcommentしたかをわかるようにするシステムな�
 
 ### SoftDeletableとの関係
 
+リレーション先で`SoftDeletable`を使用した場合、`hasMany`/`belongsTo`どちらも自動でソフトデリート済みの行を除外します。
+`find()`でのwithDeletedに相当するオプトアウト手段は無いです。
+
 ## JOINを使わない理由
