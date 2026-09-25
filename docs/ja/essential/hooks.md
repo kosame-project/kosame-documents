@@ -13,8 +13,8 @@ KosameはCRUD操作の実行前に呼ばれ、例外を投げると書き込み�
 `beforeCreate()`はModelクラスに`override`して使います。`context.<collection>.add()`が実行される前に自動的に呼ばれ、例外を投げることで書き込みを中止させることができます。
 
 ```ts
-override async beforeCreate(){
-  if(!this.name.includes("kosame")){
+override async beforeCreate() {
+  if (!this.name.includes("kosame")) {
     throw new Error("名前にkosameを入れてください");
   }
 }
