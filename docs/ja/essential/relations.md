@@ -24,7 +24,8 @@ Kosameは`hasMany`/`belongsTo`によるリレーション機能を提供して�
 
 `belongsTo()`リレーションでは単の方を表します。
 使い方として`import { belongsTo } from "kosame";`と`belongsTo()`をインポートし使います。
-`belongsTo()`の引数には対象のModelクラスを返す関数と`FK`を書きます。
+`belongsTo()`の引数には対象のModelクラスを返す関数と`FK`/`targetKey`を書きます。
+`FK`は必ず書く必要があり`targetKey`は省略することができます。省略する場合には親テーブルの主キーが使われます。
 
 ```ts
 static relations = { author: belongsTo(() => User, { foreignKey: "authorId" }) };
