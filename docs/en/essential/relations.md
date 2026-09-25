@@ -47,3 +47,7 @@ const user = await context.users.find(id, { include: ["posts"] });
 
 You cannot retrieve nested relationships using `include`.
 You need to be careful with systems—such as those designed to track which posts a user has commented on—because they involve nesting.
+
+### Composite Keys Not Supported
+
+This feature does not support tables that treat multiple columns collectively as a primary key or foreign key.
