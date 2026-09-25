@@ -24,8 +24,8 @@ override async beforeCreate(){
 
 ### beforeUpdate(changes)
 
-`beforeUpdate()`はModelクラスに`override`して使います。`context.<collection>.update()`が実行される前に自動で呼ばれ、例外を投げることで書き込みを中止させることができます。
+`beforeUpdate()`はModelクラスに`override`して使います。インスタンスの`update()`が実行される前に自動で呼ばれ、例外を投げることで書き込みを中止させることができます。
 
 ### beforeDelete()
 
-`beforeDelete()`はModelクラスに`override`して使います。`<collection>.delete()`が実行される前に自動で呼ばれ、例外を投げることで書き込みを中止させることができます。
+`beforeDelete()`はModelクラスに`override`して使います。インスタンスの`delete()`が実行される前に自動で呼ばれ、例外を投げることで書き込みを中止させることができます。
