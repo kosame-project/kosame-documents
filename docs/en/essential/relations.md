@@ -21,3 +21,12 @@ The arguments for `hasMany()` are a function that returns the target Model class
 ```
 
 ### belongsTo()
+
+The `belongsTo()` relationship represents a one-to-one relationship.
+To use it, import `belongsTo()` with `import { belongsTo } from “kosame”;`.
+The arguments for `belongsTo()` are a function that returns the target Model class and the `foreignKey`/`targetKey`.
+`foreignKey` is required, while `targetKey` is optional. If omitted, the primary key of the target table is used.
+
+```ts
+static relations = { author: belongsTo(() => User, { foreignKey: "authorId" }) };
+```
