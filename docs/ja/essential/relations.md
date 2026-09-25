@@ -46,6 +46,10 @@ const user = await context.users.find(id, { include: ["posts"] });
 ### ネスト
 
 `include`ではリレーションをネストして取得することはできません。
-userがどのpostにcommentしたかをわかるようにするシステムなどはネストするため注意。
+userがどのpostにcommentしたかをわかるようにするシステムなどはネストするため注意が必要です。
+
+### 複合キー未対応
+
+### SoftDeleteTableとの関係
 
 ## JOINを使わない理由
