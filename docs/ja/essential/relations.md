@@ -13,8 +13,8 @@ Kosameは`hasMany`/`belongsTo`によるリレーション機能を提供して�
 
 `hasMany()`リレーションでは多の方を表します。
 使い方として`import { hasMany } from "kosame";`と`hasMany()`をインポートし使います。
-`hasMany()`の引数には対象のModelクラスを返す関数と`FK`/`localKey`を書きます。
-`FK`は必ず書く必要があり`localKey`は省略することができます。省略する場合には親テーブルの主キーが使われます。
+`hasMany()`の引数には対象のModelクラスを返す関数と`foreignKey`/`localKey`を書きます。
+`foreignKey`は必ず書く必要があり`localKey`は省略することができます。省略する場合には親テーブルの主キーが使われます。
 
 ```ts
   static relations = { posts: hasMany(() => Post, { foreignKey: "authorId",})};
@@ -24,8 +24,8 @@ Kosameは`hasMany`/`belongsTo`によるリレーション機能を提供して�
 
 `belongsTo()`リレーションでは単の方を表します。
 使い方として`import { belongsTo } from "kosame";`と`belongsTo()`をインポートし使います。
-`belongsTo()`の引数には対象のModelクラスを返す関数と`FK`/`targetKey`を書きます。
-`FK`は必ず書く必要があり`targetKey`は省略することができます。省略する場合には親テーブルの主キーが使われます。
+`belongsTo()`の引数には対象のModelクラスを返す関数と`foreignKey`/`targetKey`を書きます。
+`foreignKey`は必ず書く必要があり`targetKey`は省略することができます。省略する場合には親テーブルの主キーが使われます。
 
 ```ts
 static relations = { author: belongsTo(() => User, { foreignKey: "authorId" }) };
