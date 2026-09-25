@@ -11,6 +11,13 @@ Kosameは`hasMany`/`belongsTo`によるリレーション機能を提供して�
 
 ### hasMany()
 
+hasManyリレーションでは多の方を表します
+使い方として`import { hasMany } from "kosame";`と`hasMany()`をインポートし使います
+
+```ts
+  static relations = { posts: hasMany(() => Post, { foreignKey: "authorId",})};
+```
+
 ### belongsTo()
 
 ### static relations()
