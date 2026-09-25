@@ -24,7 +24,7 @@ override async beforeCreate(){
 
 ### beforeUpdate(changes)
 
-`beforeUpdate()`はModelクラスに`override`して使います。インスタンスの`update()`が実行される前に自動で呼ばれ、例外を投げることで書き込みを中止させることができます。
+`beforeUpdate()`はModelクラスに`override`して使います。インスタンスの`update()`が実行される前に自動で呼ばれ、例外を投げることで書き込みを中止させることができます。`changes`は参照渡しなので、フック内で書き換えるとその内容がそのままDBへの書き込みに反映されます。
 
 ### beforeDelete()
 
