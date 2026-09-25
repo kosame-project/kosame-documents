@@ -19,3 +19,5 @@ override async beforeCreate() {
   }
 }
 ```
+
+By the time `beforeCreate()` is called, `this.name` already contains the value to be inserted. In this code example, an exception is thrown to stop the write operation if the name does not contain `kosame`.
