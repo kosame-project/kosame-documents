@@ -32,3 +32,11 @@ static relations = { author: belongsTo(() => User, { foreignKey: "authorId" }) }
 ```
 
 ### include
+
+Use `include` when you want to retrieve related records along with the result returned by `find()`.
+To use `include`, pass an array of key names for the relationships defined in `static relations` as an argument to `find()`.
+The key names passed to `include` become the property names of the returned instance. If the relationship is via `hasMany()`, an array is returned; if via `belongsTo()`, a single instance is returned (or `undefined` if none exists).
+
+```ts
+const user = await context.users.find(id, { include: ["posts"] });
+```
