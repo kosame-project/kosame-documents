@@ -31,8 +31,6 @@ Kosameは`hasMany`/`belongsTo`によるリレーション機能を提供して�
 static relations = { author: belongsTo(() => User, { foreignKey: "authorId" }) };
 ```
 
-### static relations
-
 ### include
 
 ## 既知の制限
