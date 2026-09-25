@@ -33,6 +33,12 @@ static relations = { author: belongsTo(() => User, { foreignKey: "authorId" }) }
 
 ### include
 
+includeは`find()`で使う
+
+```ts
+const user = await context.users.find(id, { include: ["posts"] });
+```
+
 ## 既知の制限
 
 ## JOINを使わない理由
