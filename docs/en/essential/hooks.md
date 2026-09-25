@@ -25,3 +25,5 @@ By the time `beforeCreate()` is called, `this.name` already contains the value t
 ### beforeUpdate(changes)
 
 You use `beforeUpdate()` by `overriding` it in the Model class. It is automatically called before the instance's `update()` method is executed, and you can prevent the write operation by throwing an exception. Since `changes` is passed by reference, any changes made within the hook will be reflected directly in the database write.
+
+### beforeDelete()
