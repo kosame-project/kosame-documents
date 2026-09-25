@@ -56,3 +56,9 @@ This feature does not support tables that treat multiple columns collectively as
 
 When using `SoftDeletable` in a relationship, both `hasMany` and `belongsTo` automatically exclude rows that have been soft-deleted.
 There is no opt-out mechanism equivalent to `withDeleted` in `find()`.
+
+## Reasons Not to Use JOIN
+
+Kosame's relations do not use JOINs.
+Why not? By using the `IN` clause, the fan-out problem is prevented in principle. This is a design decision based on the fact that this approach is safer because it also avoids the N+1 problem.
+Furthermore, JOINs are not used because this approach eliminates the need to rely on Drizzle's `relations()` method.
