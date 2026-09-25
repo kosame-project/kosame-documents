@@ -11,8 +11,8 @@ The design of these relationships does not use JOIN clauses; instead, it retriev
 
 ### hasMany()
 
-The `hasMany()` relationship represents a “many” side.
-To use it, import `hasMany()` with `import { hasMany } from “kosame”;`.
+The `hasMany()` relationship represents the “many” side of a relationship.
+To use it, import `hasMany()` with `import { hasMany } from "kosame";`.
 The arguments for `hasMany()` are a function that returns the target Model class and the `foreignKey`/`localKey`.
 `foreignKey` is required, while `localKey` is optional. If omitted, the primary key of the parent table is used.
 
@@ -22,8 +22,8 @@ The arguments for `hasMany()` are a function that returns the target Model class
 
 ### belongsTo()
 
-The `belongsTo()` relationship represents a one-to-one relationship.
-To use it, import `belongsTo()` with `import { belongsTo } from “kosame”;`.
+The `belongsTo()` relationship represents the "one" side of a relationship.
+To use it, import `belongsTo()` with `import { belongsTo } from "kosame";`.
 The arguments for `belongsTo()` are a function that returns the target Model class and the `foreignKey`/`targetKey`.
 `foreignKey` is required, while `targetKey` is optional. If omitted, the primary key of the target table is used.
 
