@@ -4,7 +4,7 @@ title: トランザクション
 
 # トランザクション
 
-Kosameはトランザクション機能を独自で提供していて、drizzleのdb.transactionなどを使用し実装をしています。
+Kosameは`context.transaction(callback)`によるトランザクション機能を提供しています。
 
 ## 使い方
 
