@@ -49,4 +49,4 @@ await context.transaction(async (txContext) => {
 ## dialectの違い
 
 sqlite以外のデータベースではDrizzleネイティブの`db.transaction()`が処理をしています。ですがsqliteは例外で`bun:sqlite`/`better-sqlite3`のような同期ドライバでは、`db.transaction()`に非同期コールバックを渡すと正しく動作しません。
-なのでsqliteでは、生SQLの`BEGIN`/`COMMIT`/`ROLLBACK`を手動発行で解決しています。
+なのでsqliteでは、生SQLの`BEGIN`/`COMMIT`/`ROLLBACK`（ネストしている場合は`SAVEPOINT`）を手動発行で解決しています。
