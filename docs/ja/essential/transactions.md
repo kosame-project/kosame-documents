@@ -18,16 +18,32 @@ await context.transaction(async (txContext) => {
 
 ### afterCommit()
 
-`afterCommit()`はコミット成功後に呼び出すことができるtransactionです。
+`afterCommit(callback)`は、トランザクションのコールバック内で呼び出し、コミットが成功した後に実行したい処理を登録するメソッドです。
 
 ```ts
-await context.afterCommit();
+await context.transaction(async (txContext) => {
+  const user = await txContext.users.add({ name: "kosame" });
+
+  txContext.afterCommit(() => {
+    console.log("コミットが成功しました");
+  });
+});
 ```
 
 ### afterRollback()
 
-`afterRollback()`はロールバック後に呼び出すことができるtransactionです。
+`afterRollback(callback)`は、トランザクションのコールバック内で呼び出し、ロールバックが発生した後に実行したい処理を登録するメソッドです。
 
 ```ts
-await context.afterRollback();
+await context.transaction(async (txContext) => {
+  const user = await txContext.users.add({ name: "kosame" });
+
+  txContext.afterRollback(() => {
+    console.log("ロールバックされました");
+  });
+
+  throw new Error("エラー");
+});
 ```
+
+## dialectの違い
