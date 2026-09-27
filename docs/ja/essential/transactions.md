@@ -8,6 +8,12 @@ Kosameは`context.transaction(callback)`によるトランザクション機能�
 
 ## 使い方
 
+トランザクションの書き方として`context.transaction`を呼び引数としてcallbackを持たせます。
+
+```ts
+context.transaction(callback);
+```
+
 ### afterCommit()
 
 ### afterRollback()
