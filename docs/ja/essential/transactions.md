@@ -18,10 +18,16 @@ await context.transaction(async (txContext) => {
 
 ### afterCommit()
 
-`afterCommit()`はコミット成功後に呼び出す。
+`afterCommit()`はコミット成功後に呼び出すことができるtransactionです。
 
 ```ts
 await context.afterCommit();
 ```
 
 ### afterRollback()
+
+`afterRollback()`はロールバック後に呼び出すことができるtransactionです。
+
+```ts
+await context.afterRollback();
+```
