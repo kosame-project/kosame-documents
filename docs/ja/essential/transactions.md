@@ -47,3 +47,5 @@ await context.transaction(async (txContext) => {
 ```
 
 ## dialectの違い
+
+dialectを実行するとSQLがそのまま発行します。なぜ違うのかというと`bun:sqlite`/`better-sqlite3`はDrizzleネイティブの`db.transaction()`に非同期コールバックを渡すと正しく動かないことがあり、dialectを判定した場合、SQLがそのまま手動発行されます。
