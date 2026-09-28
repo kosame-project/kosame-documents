@@ -6,7 +6,7 @@ title: Transactions
 
 Kosame provides transaction functionality via `context.transaction(callback)`.
 
-## 使い方
+## How to Use
 
 To define a transaction, call `context.transaction()` and pass a callback as an argument.
 
@@ -17,3 +17,5 @@ await context.transaction(async (txContext) => {
 ```
 
 ### afterCommit()
+
+`afterCommit(callback)` is a method that is called within a transaction's callback to register the processing you want to execute after a successful commit.
