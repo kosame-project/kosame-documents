@@ -92,7 +92,7 @@ export default defineConfig({
               { text: "リレーション", link: "/ja/essential/relations" },
               { text: "Hooks", link: "/ja/essential/hooks" },
               { text: "トランザクション", link: "/ja/essential/transactions" },
-              { text: "Mixin", link: "/ja/essential/mixins" },
+              { text: "Mixins", link: "/ja/essential/mixins" },
               { text: "バリデーション", link: "/ja/essential/validation" },
               { text: "エスケープハッチ（context.raw）", link: "/ja/essential/raw" },
             ],
