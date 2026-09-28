@@ -15,3 +15,5 @@ await context.transaction(async (txContext) => {
   const user = await txContext.users.add({ name: "kosame" });
 });
 ```
+
+### afterCommit()
