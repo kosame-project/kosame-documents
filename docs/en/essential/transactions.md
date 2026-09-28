@@ -19,3 +19,13 @@ await context.transaction(async (txContext) => {
 ### afterCommit()
 
 `afterCommit(callback)` is a method that is called within a transaction's callback to register the processing you want to execute after a successful commit.
+
+```ts
+await context.transaction(async (txContext) => {
+  const user = await txContext.users.add({ name: "kosame" });
+
+  txContext.afterCommit(() => {
+    console.log("");
+  });
+});
+```
