@@ -31,3 +31,5 @@ await context.transaction(async (txContext) => {
 ```
 
 ### afterRollback()
+
+`afterRollback(callback)` is a method that is called within a transaction's callback to register the processing you want to execute after a rollback occurs.
