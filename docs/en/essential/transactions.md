@@ -29,3 +29,5 @@ await context.transaction(async (txContext) => {
   });
 });
 ```
+
+### afterRollback()
