@@ -1,9 +1,11 @@
 ---
-title: Mixin
+title: Mixins
 ---
 
-# Mixin
+# Mixins
 
-## Mixinの仕組み
+Kosame
+
+## Mixinsの仕組み
 
 ## SoftDeletable
