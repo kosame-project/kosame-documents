@@ -47,3 +47,6 @@ await context.transaction(async (txContext) => {
 ```
 
 ## Differences Between Dialects
+
+For databases other than SQLite, Drizzle’s native `db.transaction()` handles this. However, SQLite is an exception: with synchronous drivers such as `bun:sqlite` or `better-sqlite3`, passing an asynchronous callback to `db.transaction()` does not work correctly.
+Therefore, for SQLite, this is resolved by manually issuing raw SQL `BEGIN`/`COMMIT`/`ROLLBACK` statements (and `SAVEPOINT` if nested).
