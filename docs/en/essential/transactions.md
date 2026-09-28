@@ -25,7 +25,7 @@ await context.transaction(async (txContext) => {
   const user = await txContext.users.add({ name: "kosame" });
 
   txContext.afterCommit(() => {
-    console.log("");
+    console.log("The commit was successful.");
   });
 });
 ```
