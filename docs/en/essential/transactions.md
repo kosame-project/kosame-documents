@@ -39,9 +39,9 @@ await context.transaction(async (txContext) => {
   const user = await txContext.users.add({ name: "kosame" });
 
   txContext.afterRollback(() => {
-    console.log("");
+    console.log("It was rolled back.");
   });
 
-  throw new Error("エラー");
+  throw new Error("error");
 });
 ```
