@@ -45,3 +45,5 @@ await context.transaction(async (txContext) => {
   throw new Error("error");
 });
 ```
+
+## Differences Between Dialects
