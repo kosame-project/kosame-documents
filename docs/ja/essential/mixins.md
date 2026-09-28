@@ -14,7 +14,6 @@ Kosame独自のmixin機構自体の独自実装されておらず、typeScript�
 
 ### `Constructor<T>`
 
-kosameでは`Constructor<T>`という型を提供しており、Modelとの噛み合わせをさせるために専用の型を提供してこの問題を解決しています。
-自分でMixinを書く時にはこの型を使う必要があります。
+通常のmixinパターンの型は`new (...args) => T`ですが、Model自体が`abstract class`のためこの型では噛み合いません。なのでKosameでは`Constructor<T>`(`abstract new (...args) => T`)という専用の型を提供することでこの問題を解決しています。
 
 ## SoftDeletable
