@@ -10,7 +10,18 @@ KosameではMixin機構自体の独自実装はしておらず、素のTypeScrip
 
 ### TypeScriptのMixin
 
-Kosame独自のmixin機構自体の独自実装されておらず、typeScriptのMixinパターンがそのまま使うことができます。
+Kosame独自のmixin機構自体は独自実装されておらず、TypeScriptのMixinパターンがそのまま使うことができます。
+
+```ts
+function WithTimestamp<TBase extends Constructor<Model>>(Base: TBase) {
+  abstract class WithTimestampMixin extends Base {
+    get createdAtLabel() {
+      return "作成日時";
+    }
+  }
+  return WithTimestampMixin;
+}
+```
 
 ### `Constructor<T>`
 
