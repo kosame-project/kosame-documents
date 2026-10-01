@@ -33,7 +33,7 @@ The type for the standard mixin pattern is `new (...args) => T`, but since the M
 
 ### Instructions for Use
 
-テーブルに`deletedAtColumn()`で`deletedAt`カラムを定義し、`SoftDeletable(Model)`でModelに適用します。`deletedAtColumn()`はdialectごとに`kosame/pg`などからimportします。
+Define the `deletedAt` column in the table using `deletedAtColumn()`, and apply it to the model using `SoftDeletable(Model)`. Import `deletedAtColumn()` from sources such as `kosame/pg`, depending on the dialect.
 
 ```ts
 import { Model, SoftDeletable } from "kosame";
