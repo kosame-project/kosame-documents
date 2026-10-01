@@ -6,9 +6,9 @@ title: Mixins
 
 Kosame does not provide its own implementation of the mixin mechanism; instead, it uses the standard TypeScript mixin function pattern to implement it.
 
-## Mixinsの仕組み
+## How Mixins Work
 
-### TypeScriptのMixin
+### TypeScript Mixins
 
 Kosame独自のmixin機構自体は独自実装されておらず、TypeScriptのMixinパターンがそのまま使うことができます。
 
