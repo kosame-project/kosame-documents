@@ -14,3 +14,5 @@ EscapeHatch calls `context.raw` and then writes the drizzle code.
 ```ts
 context.raw.select().from(userTable).where(eq(userTable.name, "kosame"));
 ```
+
+### Return Value
