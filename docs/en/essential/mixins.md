@@ -10,13 +10,13 @@ Kosame does not provide its own implementation of the mixin mechanism; instead, 
 
 ### TypeScript Mixins
 
-Kosame独自のmixin機構自体は独自実装されておらず、TypeScriptのMixinパターンがそのまま使うことができます。
+Kosame's proprietary mixin mechanism is not implemented from scratch; instead, you can use the TypeScript mixin pattern as-is.
 
 ```ts
 function WithTimestamp<TBase extends Constructor<Model>>(Base: TBase) {
   abstract class WithTimestampMixin extends Base {
     get createdAtLabel() {
-      return "作成日時";
+      return "Date and Time Created";
     }
   }
   return WithTimestampMixin;
