@@ -23,3 +23,5 @@ export class User extends Model {
   declare name: string;
 }
 ```
+
+### Verification Timing
