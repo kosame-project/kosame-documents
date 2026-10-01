@@ -43,6 +43,10 @@ class User extends SoftDeletable(Model) {
 }
 ```
 
+### `delete()`と`hardDelete()`
+
 `delete()`は`deleteAt`へUPDATEに、そして`hardDelete()`は従来の完全削除をさせます。
+
+### 取得時の自動除外
 
 SoftDeletableを適用した時、deleteAtがついているとアソシエーション経由の取得が自動で除外されます。
