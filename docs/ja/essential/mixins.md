@@ -29,4 +29,20 @@ function WithTimestamp<TBase extends Constructor<Model>>(Base: TBase) {
 
 ## SoftDeletable
 
-SoftDeletableを
+SoftDeletableはDBから完全削除をするのではなく`deleteAt`のようなフラグを立て削除したかのように見せる機能です。
+
+### 適用方法
+
+`SoftDeletable`をimportして、`SoftDeletable(Model)`でModelに適用させます。
+
+```ts
+import { SoftDeletable } from "kosame";
+
+class User extends SoftDeletable(Model) {
+  static table = userTable;
+}
+```
+
+`delete()`は`deleteAt`へUPDATEに、そして`hardDelete()`は従来の完全削除をさせます。
+
+SoftDeletableを適用した時、deleteAtがついているとアソシエーション経由の取得が自動で除外されます。
