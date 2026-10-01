@@ -17,4 +17,7 @@ Modelに`static schema`(drizzle-zodの`createInsertSchema(table)`)を書いた�
 
 ### 検証タイミング
 
+検証タイミングとして書き込み時/読み込み時にバリデーションが走ります。
+`add()`/`update()`/`save()`とhydration時`find()`/`reload()`にバリデーションを行います。
+
 ### 失敗時
