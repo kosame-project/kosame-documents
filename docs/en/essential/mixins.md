@@ -50,9 +50,9 @@ class User extends SoftDeletable(Model) {
 }
 ```
 
-### `delete()`と`hardDelete()`
+### `delete()` and `hardDelete()`
 
-`delete()`は実際には削除せず`deletedAt`に日時をUPDATEします。本来の完全削除をしたい場合は`hardDelete()`を使います。
+`delete()` does not actually delete the record; instead, it updates the `deletedAt` field with a date and time. To perform a permanent deletion, use `hardDelete()`.
 
 ### 取得時の自動除外
 
