@@ -12,5 +12,5 @@ Kosameでは表現しきれない実装には、エスケープハッチを使�
 エスケープハッチは`context.raw`を呼び出し、その後にdrizzleを書きます。
 
 ```ts
-context.raw.select().from(writerTable).where(eq(writerTable.email, body.email));
+context.raw.select().from(userTable).where(eq(userTable.name, "kosame"));
 ```
