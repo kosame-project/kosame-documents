@@ -10,3 +10,16 @@ When you configure a `static schema` in Kosame, it automatically validates data 
 
 Kosame does not have its own schema definition DSL, so you'll need to create one yourself.
 If you write a `static schema` (drizzle-zod's `createInsertSchema(table)`) in the Model, it will work.
+
+```ts
+import { createInsertSchema } from "drizzle-zod";
+
+export class User extends Model {
+  static table = usersTable;
+  static schema = createInsertSchema(usersTable, {
+    name: (schema) => schema.min(1),
+  });
+  declare id: number;
+  declare name: string;
+}
+```
