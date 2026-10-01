@@ -4,7 +4,7 @@ title: バリデーション
 
 # バリデーション
 
-KosameはDrizzle-zodを経由し検証するバリデーションが提供されます。
+Kosameは`static schema`を設定すると書き込み読み込み時に自動で検証する機能を提供しています。
 
 ## static schema
 
