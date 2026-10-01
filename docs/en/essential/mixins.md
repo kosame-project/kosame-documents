@@ -54,6 +54,6 @@ class User extends SoftDeletable(Model) {
 
 `delete()` does not actually delete the record; instead, it updates the `deletedAt` field with a date and time. To perform a permanent deletion, use `hardDelete()`.
 
-### 取得時の自動除外
+### Automatic Exclusion Upon Acquisition
 
 `SoftDeletable`を適用したModelは、`find()`と`include`によるリレーション取得の両方で、削除済みの行が自動的に除外されます。カラム名が`deletedAt`というだけでは除外されず、`SoftDeletable`を適用した場合のみ有効です。
