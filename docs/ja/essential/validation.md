@@ -21,3 +21,5 @@ Modelに`static schema`(drizzle-zodの`createInsertSchema(table)`)を書いた�
 `add()`/`update()`/`save()`とhydration時`find()`/`reload()`にバリデーションを行います。
 
 ### 失敗時
+
+バリデーション失敗時には、例外が投げられて、DB操作/hydrationを停止します。
