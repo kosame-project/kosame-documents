@@ -9,7 +9,7 @@ Kosameは`static schema`を設定すると書き込みと読み込み時に自�
 ## static schema
 
 Kosameには独自のスキーマ定義DSLがなく自ら作る必要があります
-Modelにstatic schemaを書いた場合動きます。
+Modelに`static schema`(drizzle-zodの`createInsertSchema(table)`)を書いた場合動きます。
 
 ```ts
 
