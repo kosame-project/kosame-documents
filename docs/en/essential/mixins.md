@@ -29,9 +29,9 @@ The type for the standard mixin pattern is `new (...args) => T`, but since the M
 
 ## SoftDeletable
 
-`SoftDeletable`はDBから完全削除をするのではなく`deletedAt`のようなカラムに日時を入れ、削除したかのように見せる機能です。
+`SoftDeletable` is a feature that, rather than completely deleting data from the database, stores a date and time in a column such as `deletedAt` to make it appear as if the data has been deleted.
 
-### 適用方法
+### Instructions for Use
 
 テーブルに`deletedAtColumn()`で`deletedAt`カラムを定義し、`SoftDeletable(Model)`でModelに適用します。`deletedAtColumn()`はdialectごとに`kosame/pg`などからimportします。
 
