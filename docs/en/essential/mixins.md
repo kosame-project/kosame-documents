@@ -56,4 +56,4 @@ class User extends SoftDeletable(Model) {
 
 ### Automatic Exclusion Upon Acquisition
 
-`SoftDeletable`を適用したModelは、`find()`と`include`によるリレーション取得の両方で、削除済みの行が自動的に除外されます。カラム名が`deletedAt`というだけでは除外されず、`SoftDeletable`を適用した場合のみ有効です。
+For models that have `SoftDeletable` applied, deleted rows are automatically excluded from both `find()` queries and relations retrieved via `include`. Simply having a column named `deletedAt` is not enough to exclude these rows; this behavior is only effective when `SoftDeletable` is applied.
