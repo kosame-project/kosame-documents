@@ -30,3 +30,5 @@ Validation runs during write and read operations.
 Validation is performed during `add()`/`update()`/`save()` calls, during `find()`/`reload()` calls during hydration, and when retrieving relationships via `include`.
 
 ### In Case of Failure
+
+If validation fails, an exception is thrown, and database operations and hydration are halted.
