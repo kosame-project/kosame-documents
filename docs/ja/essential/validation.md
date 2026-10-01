@@ -12,7 +12,16 @@ Kosameには独自のスキーマ定義DSLがなく自ら作る必要があり�
 Modelに`static schema`(drizzle-zodの`createInsertSchema(table)`)を書いた場合動きます。
 
 ```ts
+import { createInsertSchema } from "drizzle-zod";
 
+export class User extends Model {
+  static table = usersTable;
+  static schema = createInsertSchema(usersTable, {
+    name: (schema) => schema.min(1),
+  });
+  declare id: number;
+  declare name: string;
+}
 ```
 
 ### 検証タイミング
