@@ -19,7 +19,7 @@ context.raw.select().from(userTable).where(eq(userTable.name, "kosame"));
 
 `context.raw` does not use a Model instance because it executes Drizzle directly; therefore, you cannot use features provided by Kosame, such as validation and hooks.
 
-### `txContext.raw` During a Transaction
+### txContext.raw During a Transaction
 
 `txContext.raw` automatically points to the `tx` handle for that transaction.
 Since `better-sqlite3` and `bun:sqlite` use a single connection, `txContext.raw` and `context.raw` point to the same object.

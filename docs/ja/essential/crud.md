@@ -38,7 +38,7 @@ const found = await context.users.find(user.id);
 `update()`の引数に、`add()`と同じようにカラムの値をオブジェクトとして渡します。
 `update()`は値を返さず、呼び出し元のインスタンス自身が新しい値に更新されます。
 
-#### `add()`との違い
+#### add()との違い
 
 役割としては`update()`は更新処理で、`add()`は追加処理ですが書き方などもかなり近いです。`update()`は`add()`とは違いcontext経由ではなく直接の処理です。
 

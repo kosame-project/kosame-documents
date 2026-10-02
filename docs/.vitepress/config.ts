@@ -52,7 +52,7 @@ export default defineConfig({
             text: "Patterns",
             items: [
               { text: "Model Field Declarations", link: "/en/patterns/model-field-declarations" },
-              { text: "The `Model` Naming Collision", link: "/en/patterns/naming-collision" },
+              { text: "The Model Naming Collision", link: "/en/patterns/naming-collision" },
               { text: "Dialect Notes (pg / mysql / sqlite / D1)", link: "/en/patterns/dialects" },
             ],
           },
@@ -101,7 +101,7 @@ export default defineConfig({
             text: "パターン",
             items: [
               { text: "Modelのフィールド宣言", link: "/ja/patterns/model-field-declarations" },
-              { text: "`Model`という名前の衝突について", link: "/ja/patterns/naming-collision" },
+              { text: "Modelという名前の衝突について", link: "/ja/patterns/naming-collision" },
               { text: "Dialectごとの注意点（pg / mysql / sqlite / D1）", link: "/ja/patterns/dialects" },
             ],
           },

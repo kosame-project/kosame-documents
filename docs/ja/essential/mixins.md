@@ -23,7 +23,7 @@ function WithTimestamp<TBase extends Constructor<Model>>(Base: TBase) {
 }
 ```
 
-### `Constructor<T>`
+### Constructor&lt;T&gt;
 
 通常のmixinパターンの型は`new (...args) => T`ですが、Model自体が`abstract class`のためこの型では噛み合いません。なのでKosameでは`Constructor<T>`(`abstract new (...args: any[]) => T`)という専用の型を提供することでこの問題を解決しています。
 
@@ -50,7 +50,7 @@ class User extends SoftDeletable(Model) {
 }
 ```
 
-### `delete()`と`hardDelete()`
+### delete()とhardDelete()
 
 `delete()`は実際には削除せず`deletedAt`に日時をUPDATEします。本来の完全削除をしたい場合は`hardDelete()`を使います。
 

@@ -23,7 +23,7 @@ function WithTimestamp<TBase extends Constructor<Model>>(Base: TBase) {
 }
 ```
 
-### `Constructor<T>`
+### Constructor&lt;T&gt;
 
 The type for the standard mixin pattern is `new (...args) => T`, but since the Model itself is an `abstract class`, this type does not work. Therefore, Kosame resolves this issue by providing a dedicated type called `Constructor<T>` (`abstract new (...args: any[]) => T`).
 
@@ -50,7 +50,7 @@ class User extends SoftDeletable(Model) {
 }
 ```
 
-### `delete()` and `hardDelete()`
+### delete() and hardDelete()
 
 `delete()` does not actually delete the record; instead, it updates the `deletedAt` field with a date and time. To perform a permanent deletion, use `hardDelete()`.
 
