@@ -24,10 +24,10 @@ export class User extends Model {
 }
 ```
 
-### Verification Timing
+### Validation Timing
 
 Validation runs during write and read operations.
-Validation is performed during `add()`/`update()`/`save()` calls, during `find()`/`reload()` calls during hydration, and when retrieving relationships via `include`.
+Validation is performed during `add()`/`update()`/`save()` calls, during hydration in `find()`/`reload()`, and when retrieving relationships via `include`.
 
 ### In Case of Failure
 

@@ -17,7 +17,7 @@ Kosameは`hasMany`/`belongsTo`によるリレーション機能を提供して�
 `foreignKey`は必ず書く必要があり`localKey`は省略することができます。省略する場合には親テーブルの主キーが使われます。
 
 ```ts
-  static relations = { posts: hasMany(() => Post, { foreignKey: "authorId",})};
+static relations = { posts: hasMany(() => Post, { foreignKey: "authorId" }) };
 ```
 
 ### belongsTo()

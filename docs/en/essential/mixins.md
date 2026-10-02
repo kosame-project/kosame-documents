@@ -10,7 +10,7 @@ Kosame does not provide its own implementation of the mixin mechanism; instead, 
 
 ### TypeScript Mixins
 
-Kosame's proprietary mixin mechanism is not implemented from scratch; instead, you can use the TypeScript mixin pattern as-is.
+Kosame has no mixin mechanism of its own, so you can use the standard TypeScript mixin pattern as-is.
 
 ```ts
 function WithTimestamp<TBase extends Constructor<Model>>(Base: TBase) {
@@ -50,10 +50,10 @@ class User extends SoftDeletable(Model) {
 }
 ```
 
-### `delete()` and `hardDelete()`
+### delete() and hardDelete()
 
 `delete()` does not actually delete the record; instead, it updates the `deletedAt` field with a date and time. To perform a permanent deletion, use `hardDelete()`.
 
-### Automatic Exclusion Upon Acquisition
+### Automatic Exclusion When Fetching
 
 For models that have `SoftDeletable` applied, deleted rows are automatically excluded from both `find()` queries and relations retrieved via `include`. Simply having a column named `deletedAt` is not enough to exclude these rows; this behavior is only effective when `SoftDeletable` is applied.

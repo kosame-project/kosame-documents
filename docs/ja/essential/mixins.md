@@ -50,7 +50,7 @@ class User extends SoftDeletable(Model) {
 }
 ```
 
-### `delete()`と`hardDelete()`
+### delete()とhardDelete()
 
 `delete()`は実際には削除せず`deletedAt`に日時をUPDATEします。本来の完全削除をしたい場合は`hardDelete()`を使います。
 

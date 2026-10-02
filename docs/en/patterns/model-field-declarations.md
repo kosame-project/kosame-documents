@@ -18,7 +18,7 @@ Since this feature might be confusing for those unfamiliar with declaration merg
 import { Model } from "kosame";
 
 export class User extends Model {
-  static table = userTable;
+  static table = usersTable;
   declare id: number;
   declare name: string;
 }
@@ -29,16 +29,16 @@ export class User extends Model {
 In the declaration merge approach, the code is written twice—once for `interface` and once for `class`.
 TypeScript has a feature that automatically merges `interface` and `class` definitions with the same name,
 so this syntax works without any issues.
-A key feature of this approach is that it eliminates the need for duplicate definitions; however, compared to the `declare` syntax, it can be difficult for first-time users to understand. Since we believe this feature might confuse those unfamiliar with it, we’ve provided the `declare` syntax as an alternative.
+A key feature of this approach is that it eliminates the need for duplicate definitions; however, compared to the `declare` syntax, it can be difficult for first-time users to understand.
 
 ```ts
 import { Model } from "kosame";
 import { InferSelectModel } from "drizzle-orm";
 
-export interface User extends InferSelectModel<typeof userTable> {}
+export interface User extends InferSelectModel<typeof usersTable> {}
 
 export class User extends Model {
-  static table = userTable;
+  static table = usersTable;
 }
 ```
 

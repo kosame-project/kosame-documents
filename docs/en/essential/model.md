@@ -20,7 +20,7 @@ src/
 
 ### How to Write a Model
 
-When creating a model, after defining the table in Drizzle, create a class that extends `Model` for the table you want to model. Then, within that class, link the table to the model using a declaration such as `static table = userTable`.
+When creating a model, after defining the table in Drizzle, create a class that extends `Model` for the table you want to model. Then, within that class, link the table to the model using a declaration such as `static table = usersTable`.
 
 ```ts
 export const usersTable = pgTable("users", {
@@ -57,7 +57,7 @@ export class User extends Model {
 ## Reasons for Using “declare”
 
 When creating a model, you may use the `declare` keyword to declare fields within a class.
-The `declare` keyword is removed during transpilation. While this may seem to defeat the purpose of the declaration, if you were to write `name : string = “”` instead of using `declare`, the initial value might remain after transpilation. Since this could cause conflicts with values automatically assigned by Kosame at runtime, we use `declare` to intentionally have the declaration removed during transpilation and avoid such conflicts.
+The `declare` keyword is removed during transpilation. While this may seem to defeat the purpose of the declaration, if you were to write `name: string = ""` instead of using `declare`, the initial value might remain after transpilation. Since this could cause conflicts with values automatically assigned by Kosame at runtime, we use `declare` to intentionally have the declaration removed during transpilation and avoid such conflicts.
 
 ## Why You Can't Create It Directly with “new”
 

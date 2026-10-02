@@ -9,10 +9,10 @@ Kosameでは表現しきれない実装には、エスケープハッチを使�
 
 ## context.raw
 
-エスケープハッチは`context.raw`を呼び出し、その後にdrizzleを書きます。
+エスケープハッチは`context.raw`にアクセスし、その後にdrizzleを書きます。
 
 ```ts
-context.raw.select().from(userTable).where(eq(userTable.name, "kosame"));
+context.raw.select().from(usersTable).where(eq(usersTable.name, "kosame"));
 ```
 
 ### 返り値

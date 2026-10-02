@@ -8,7 +8,7 @@ Kosame provides its own CRUD operations.
 
 ## How to Write CRUD Operations
 
-### Syntax Common to `add()` and `find()`
+### Syntax Common to add() and find()
 
 To use it, first access `context`, then specify the name of the table you want to work with (in this case, `users`), and finally enter the method you want to call.
 
@@ -38,7 +38,7 @@ The `update()` method is used to update the database.
 Just like with `add()`, you pass the column values as an object to the `update()` method.
 `update()` does not return a value; instead, the calling instance itself is updated with the new values.
 
-#### Differences from `add()`
+#### Differences from add()
 
 In terms of their roles, `update()` handles updates, while `add()` handles additions, but their syntax is quite similar. Unlike `add()`, `update()` performs the operation directly rather than through the context.
 

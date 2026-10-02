@@ -18,7 +18,7 @@ Model宣言の一つの方法として`declare`を一つ一つ書いていく方
 import { Model } from "kosame";
 
 export class User extends Model {
-  static table = userTable;
+  static table = usersTable;
   declare id: number;
   declare name: string;
 }
@@ -29,16 +29,16 @@ export class User extends Model {
 宣言マージ方式では`interface`と`class`で2回書かれます。
 TypeScriptでは、同名の`interface`と`class`が自動的にマージされる機能があり、
 この書き方でも問題なく動きます。
-特徴として、二重で定義する必要がなく、そして`declare`と比べて初めて見る人にはわかりずらいという点があります。この機能に知らない人などは混乱する、可能性があると思いdeclareの書き方を用意しています。
+特徴として、二重で定義する必要がなく、そして`declare`と比べて初めて見る人にはわかりづらいという点があります。
 
 ```ts
 import { Model } from "kosame";
 import { InferSelectModel } from "drizzle-orm";
 
-export interface User extends InferSelectModel<typeof userTable> {}
+export interface User extends InferSelectModel<typeof usersTable> {}
 
 export class User extends Model {
-  static table = userTable;
+  static table = usersTable;
 }
 ```
 
