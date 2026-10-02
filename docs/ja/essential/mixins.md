@@ -23,7 +23,7 @@ function WithTimestamp<TBase extends Constructor<Model>>(Base: TBase) {
 }
 ```
 
-### Constructor&lt;T&gt;
+### `Constructor<T>`
 
 通常のmixinパターンの型は`new (...args) => T`ですが、Model自体が`abstract class`のためこの型では噛み合いません。なのでKosameでは`Constructor<T>`(`abstract new (...args: any[]) => T`)という専用の型を提供することでこの問題を解決しています。
 

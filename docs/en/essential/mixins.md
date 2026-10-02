@@ -23,7 +23,7 @@ function WithTimestamp<TBase extends Constructor<Model>>(Base: TBase) {
 }
 ```
 
-### Constructor&lt;T&gt;
+### `Constructor<T>`
 
 The type for the standard mixin pattern is `new (...args) => T`, but since the Model itself is an `abstract class`, this type does not work. Therefore, Kosame resolves this issue by providing a dedicated type called `Constructor<T>` (`abstract new (...args: any[]) => T`).
 
