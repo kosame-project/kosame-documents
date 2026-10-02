@@ -9,7 +9,7 @@ The escape hatch allows you to write drizzle code directly.
 
 ## context.raw
 
-The escape hatch calls `context.raw` and then writes the drizzle code.
+To use the escape hatch, access `context.raw` and then write the drizzle code.
 
 ```ts
 context.raw.select().from(usersTable).where(eq(usersTable.name, "kosame"));

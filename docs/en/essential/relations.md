@@ -17,7 +17,7 @@ The arguments for `hasMany()` are a function that returns the target Model class
 `foreignKey` is required, while `localKey` is optional. If omitted, the primary key of the parent table is used.
 
 ```ts
-  static relations = { posts: hasMany(() => Post, { foreignKey: "authorId",})};
+static relations = { posts: hasMany(() => Post, { foreignKey: "authorId" }) };
 ```
 
 ### belongsTo()

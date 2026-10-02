@@ -10,7 +10,7 @@ Kosame does not provide its own implementation of the mixin mechanism; instead, 
 
 ### TypeScript Mixins
 
-Kosame's proprietary mixin mechanism is not implemented from scratch; instead, you can use the TypeScript mixin pattern as-is.
+Kosame has no mixin mechanism of its own, so you can use the standard TypeScript mixin pattern as-is.
 
 ```ts
 function WithTimestamp<TBase extends Constructor<Model>>(Base: TBase) {
