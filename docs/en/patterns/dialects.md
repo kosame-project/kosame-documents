@@ -9,29 +9,29 @@ This page covers the points to note for each one.
 
 ## Transactions
 
-| dialect                                | Details                                                                                               |
+| Dialect                                | Details                                                                                               |
 | -------------------------------------- | ----------------------------------------------------------------------------------------------------- |
 | PostgreSQL                             | `db.transaction()`                                                                                    |
 | MySQL                                  | `db.transaction()`                                                                                    |
 | SQLite (`better-sqlite3`/`bun:sqlite`) | Manually issue raw SQL `BEGIN`/`COMMIT`/`ROLLBACK` (use `SAVEPOINT` for nesting)                      |
 | D1                                     | `db.transaction()` (It has not been verified whether D1 accepts internal `BEGIN`/`COMMIT` statements) |
 
-Since `@libsql/client` is an asynchronous driver, it delegates to `db.transaction()`. For details, see [Transactions](/ja/essential/transactions).
+Since `@libsql/client` is an asynchronous driver, it delegates to `db.transaction()`. For details, see [Transactions](/en/essential/transactions).
 
 ## context.raw and txContext.raw
 
-| dialect    | Details                                                                   |
+| Dialect    | Details                                                                   |
 | ---------- | ------------------------------------------------------------------------- |
 | PostgreSQL | Separate connection                                                       |
 | MySQL      | Separate connection                                                       |
 | SQLite     | Single connection (`txContext.raw` and `context.raw` are the same object) |
 | D1         | Unverified                                                                |
 
-For more details, see [Escape Hatch](/ja/essential/raw).
+For more details, see [Escape Hatch](/en/essential/raw).
 
 ## Retrieving Rows After an INSERT
 
-| dialect    | Details                                                                   |
+| Dialect    | Details                                                                   |
 | ---------- | ------------------------------------------------------------------------- |
 | PostgreSQL | `.returning()`                                                            |
 | MySQL      | Use `$returningId()` to retrieve the primary key and perform a new SELECT |
@@ -40,9 +40,9 @@ For more details, see [Escape Hatch](/ja/essential/raw).
 
 In MySQL, since rows cannot be retrieved after an INSERT on tables without a primary key, `add()` cannot be used.
 
-## Type of `deletedAtColumn()`
+## Type of deletedAtColumn()
 
-| dialect    | Details                    |
+| Dialect    | Details                    |
 | ---------- | -------------------------- |
 | PostgreSQL | `timestamp`                |
 | MySQL      | `datetime`                 |
@@ -51,7 +51,7 @@ In MySQL, since rows cannot be retrieved after an INSERT on tables without a pri
 
 ## import
 
-| dialect    | Details         |
+| Dialect    | Details         |
 | ---------- | --------------- |
 | PostgreSQL | `kosame/pg`     |
 | MySQL      | `kosame/mysql`  |
