@@ -18,7 +18,7 @@ Since this feature might be confusing for those unfamiliar with declaration merg
 import { Model } from "kosame";
 
 export class User extends Model {
-  static table = userTable;
+  static table = usersTable;
   declare id: number;
   declare name: string;
 }
@@ -35,10 +35,10 @@ A key feature of this approach is that it eliminates the need for duplicate defi
 import { Model } from "kosame";
 import { InferSelectModel } from "drizzle-orm";
 
-export interface User extends InferSelectModel<typeof userTable> {}
+export interface User extends InferSelectModel<typeof usersTable> {}
 
 export class User extends Model {
-  static table = userTable;
+  static table = usersTable;
 }
 ```
 

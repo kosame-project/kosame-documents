@@ -2,7 +2,7 @@
 title: Kosame install
 ---
 
-## Kosame install
+# Kosame install
 
 ### bun
 
@@ -16,7 +16,7 @@ bun add kosame
 npm install kosame
 ```
 
-# driver
+## driver
 
 You must install the database driver yourself. The current version of Kosame is v0.45.2, which provides the stable version of Drizzle.
 

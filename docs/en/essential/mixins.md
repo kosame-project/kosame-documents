@@ -54,6 +54,6 @@ class User extends SoftDeletable(Model) {
 
 `delete()` does not actually delete the record; instead, it updates the `deletedAt` field with a date and time. To perform a permanent deletion, use `hardDelete()`.
 
-### Automatic Exclusion Upon Acquisition
+### Automatic Exclusion When Fetching
 
 For models that have `SoftDeletable` applied, deleted rows are automatically excluded from both `find()` queries and relations retrieved via `include`. Simply having a column named `deletedAt` is not enough to exclude these rows; this behavior is only effective when `SoftDeletable` is applied.

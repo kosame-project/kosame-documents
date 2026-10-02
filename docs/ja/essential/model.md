@@ -20,7 +20,7 @@ src/
 
 ### Modelの書き方
 
-Modelの作成においてDrizzleのTable定義をした後、作りたいTableに対しModelクラスをextendさせます、そして作成したクラス内に `static table = userTable` のようにTableとModelを紐づけます。
+Modelの作成においてDrizzleのTable定義をした後、作りたいTableに対しModelクラスをextendさせます、そして作成したクラス内に `static table = usersTable` のようにTableとModelを紐づけます。
 
 ```ts
 export const usersTable = pgTable("users", {
@@ -57,7 +57,7 @@ export class User extends Model {
 ## declareを書く理由
 
 Modelを作成する時にクラス内にdeclareで宣言することがあります。
-declareがトランスパイラ時に消えてしまいます。これでは宣言の意味がないように思われますがdeclareの代わりに`name : string = ""`のように書いてしまうとトランスパイラ後に初期値として存在する可能性があります。これはKosameの実行時に自動で値が入ると衝突する可能性があるためdeclareで宣言し、あえてトランスパイラ時に消し、衝突を回避します。
+declareがトランスパイラ時に消えてしまいます。これでは宣言の意味がないように思われますがdeclareの代わりに`name: string = ""`のように書いてしまうとトランスパイラ後に初期値として存在する可能性があります。これはKosameの実行時に自動で値が入ると衝突する可能性があるためdeclareで宣言し、あえてトランスパイラ時に消し、衝突を回避します。
 
 ## newで直接作成できない理由
 

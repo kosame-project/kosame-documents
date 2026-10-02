@@ -4,7 +4,7 @@ title: Dialectごとの注意点（pg / mysql / sqlite / D1）
 
 # Dialectごとの注意点（pg / mysql / sqlite / D1）
 
-KosameはDrizzleベースであるためDBの違いまでは吸収仕切れていません。
+KosameはDrizzleベースであるためDBの違いまでは吸収しきれていません。
 このページではそれぞれの注意点を触れていきます。
 
 ## トランザクション
