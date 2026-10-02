@@ -16,7 +16,7 @@ This page covers the points to note for each one.
 | SQLite (`better-sqlite3`/`bun:sqlite`) | Manually issue raw SQL `BEGIN`/`COMMIT`/`ROLLBACK` (use `SAVEPOINT` for nesting)                      |
 | D1                                     | `db.transaction()` (It has not been verified whether D1 accepts internal `BEGIN`/`COMMIT` statements) |
 
-Since `@libsql/client` is an asynchronous driver, it delegates to `db.transaction()`. For details, see [Transactions](/en/essential/transactions).
+Since `@libsql/client` is an asynchronous driver, it delegates to `db.transaction()`. For details, see [Transactions](../essential/transactions).
 
 ## context.raw and txContext.raw
 
@@ -27,7 +27,7 @@ Since `@libsql/client` is an asynchronous driver, it delegates to `db.transactio
 | SQLite     | Single connection (`txContext.raw` and `context.raw` are the same object) |
 | D1         | Unverified                                                                |
 
-For more details, see [Escape Hatch](/en/essential/raw).
+For more details, see [Escape Hatch](../essential/raw).
 
 ## Retrieving Rows After an INSERT
 
