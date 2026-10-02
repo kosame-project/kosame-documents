@@ -4,6 +4,8 @@ title: Modelのフィールド宣言
 
 # Modelのフィールド宣言
 
+KosameではModel宣言の方法として、二つ方法があります。
+
 ## 宣言マージ
 
 宣言マージ方式では`interface`と`class`で2回書かれます。
