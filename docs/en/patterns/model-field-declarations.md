@@ -41,3 +41,7 @@ export class User extends Model {
   static table = userTable;
 }
 ```
+
+## About Recommendations
+
+Kosame does not have a recommended declaration method, but if you want to write code intuitively, use `declare`. If you find that verbose, use `interface` (declaration merging).
