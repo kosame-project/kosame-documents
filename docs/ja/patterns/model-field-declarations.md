@@ -5,6 +5,22 @@ title: Modelのフィールド宣言
 # Modelのフィールド宣言
 
 KosameではModel宣言の方法として、二つ方法があります。
+このページではなぜ二つの宣言方法を用意したのか、その宣言方法の特徴について触れます。
+
+## declare
+
+Modelのフィールドの書き方には、`declare`を1つずつ書く方式があります。
+これは2重で定義する代わりにわかりやすさを基本とした書き方で、一目で何が宣言されているかわかるという点を強く持ちます。
+
+```ts
+import { Model } from "kosame";
+
+export class User extends Model {
+  static table = userTable;
+  declare id: number;
+  declare name: string;
+}
+```
 
 ## 宣言マージ
 
@@ -20,20 +36,5 @@ export interface User extends InferSelectModel<typeof userTable> {}
 
 export class User extends Model {
   static table = userTable;
-}
-```
-
-## declare
-
-Modelのフィールドの書き方には、`declare`を1つずつ書く方式があります。
-これは2重で定義する代わりにわかりやすさを基本とした書き方で、一目で何が宣言されているかわかるという点を強く持ちます。
-
-```ts
-import { Model } from "kosame";
-
-export class User extends Model {
-  static table = userTable;
-  declare id: number;
-  declare name: string;
 }
 ```
