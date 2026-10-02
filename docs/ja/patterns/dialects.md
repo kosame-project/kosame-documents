@@ -9,35 +9,51 @@ KosameはDrizzleベースであるためDBの違いまでは吸収仕切れて�
 
 ## トランザクション
 
-Postgresql: `db.transaction()`
-MySql: `db.transaction()`
-SQLite: 生SQLのBEGIN/COMMIT/ROLLBACK (ネスト SAVEPOINT)を手動発行
-D1: 生SQLのBEGIN/COMMIT/ROLLBACK (ネスト SAVEPOINT)を手動発行
+| dialect | 内容 |
+|---|---|
+| PostgreSQL | `db.transaction()` |
+| MySQL | `db.transaction()` |
+| SQLite（`better-sqlite3`/`bun:sqlite`） | 生SQLの`BEGIN`/`COMMIT`/`ROLLBACK`（ネストは`SAVEPOINT`）を手動発行 |
+| D1 | `db.transaction()`（D1が内部の`BEGIN`/`COMMIT`を受け付けるかは未検証） |
+
+`@libsql/client`は非同期ドライバなので、`db.transaction()`に委譲されます。詳しくは[トランザクション](/ja/essential/transactions)を参照してください。
 
 ## context.rawとtxContext.raw
 
-Postgresql: 別の接続
-MySql: 別の接続
-SQLite: 単一接続
-D1: -
+| dialect | 内容 |
+|---|---|
+| PostgreSQL | 別の接続 |
+| MySQL | 別の接続 |
+| SQLite | 単一接続（`txContext.raw`と`context.raw`が同一オブジェクト） |
+| D1 | 未確認 |
+
+詳しくは[エスケープハッチ](/ja/essential/raw)を参照してください。
 
 ## INSERT後の行の取得
 
-Postgresql: `.returning()`
-MySql: `$returningId()`で主キーを取って再SELECT
-SQLite: `.returning()`
-D1: -
+| dialect | 内容 |
+|---|---|
+| PostgreSQL | `.returning()` |
+| MySQL | `$returningId()`で主キーを取って再SELECT |
+| SQLite | `.returning()` |
+| D1 | `.returning()`（SQLiteと同じ） |
+
+MySQLは、主キーが無いテーブルでは、INSERT後に行を再取得できないため、`add()`が使えません。
 
 ## deletedAtColumn()の型
 
-Postgresql: timestamp
-MySql: datetime
-SQLite: integer
-D1: -
+| dialect | 内容 |
+|---|---|
+| PostgreSQL | `timestamp` |
+| MySQL | `datetime` |
+| SQLite | `integer`（timestampモード） |
+| D1 | SQLiteと同じ |
 
 ## import
 
-Postgresql: kosame/pg
-MySql: kosame/mysql
-SQLite: kosame/sqlite
-D1: -
+| dialect | 内容 |
+|---|---|
+| PostgreSQL | `kosame/pg` |
+| MySQL | `kosame/mysql` |
+| SQLite | `kosame/sqlite` |
+| D1 | `kosame/sqlite` |
