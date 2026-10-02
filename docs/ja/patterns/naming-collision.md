@@ -11,3 +11,11 @@ KosameのModelという名前は一般的に使われる名前で、もし別ラ
 Modelというクラスをextendsして使うライブラリの場合これは識別子の重複エラーになり同じファイルにimportできません。
 それ以外にも`model()`というメソッド名があった時にimportするタイミングでkosameのModelと他ライブラリの`model()`で混同してしまいimport先を間違えてしまったり、
 読みにくくなるなどの問題が発生します。
+
+## 対策
+
+対策としてimportのタイミングでエイリアスをつけることで対策できます。
+
+```ts
+import { Model as KosameModel } from "kosame";
+```
