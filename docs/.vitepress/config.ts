@@ -6,11 +6,13 @@ export default defineConfig({
   cleanUrls: true,
   lastUpdated: true,
 
-  head: [["link", { rel: "icon", type: "image/png", href: "/logo.png" }]],
+  head: [["link", { rel: "icon", type: "image/svg", href: "/favicon.svg" }]],
 
   themeConfig: {
     logo: "/logo.png",
-    socialLinks: [{ icon: "github", link: "https://github.com/kosame-project/kosame-orm" }],
+    socialLinks: [
+      { icon: "github", link: "https://github.com/kosame-project/kosame-orm" },
+    ],
     search: { provider: "local" },
   },
 
@@ -22,7 +24,10 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: "Guide", link: "/en/kosame" },
-          { text: "GitHub", link: "https://github.com/kosame-project/kosame-orm" },
+          {
+            text: "GitHub",
+            link: "https://github.com/kosame-project/kosame-orm",
+          },
           { text: "npm", link: "https://www.npmjs.com/package/kosame" },
         ],
         sidebar: [
@@ -30,7 +35,10 @@ export default defineConfig({
             text: "Getting Started",
             items: [
               { text: "What is Kosame?", link: "/en/kosame" },
-              { text: "Installation", link: "/en/getting-started/installation" },
+              {
+                text: "Installation",
+                link: "/en/getting-started/installation",
+              },
               { text: "Quick Start", link: "/en/getting-started/quick-start" },
             ],
           },
@@ -51,14 +59,24 @@ export default defineConfig({
           {
             text: "Patterns",
             items: [
-              { text: "Model Field Declarations", link: "/en/patterns/model-field-declarations" },
-              { text: "The Model Naming Collision", link: "/en/patterns/naming-collision" },
-              { text: "Dialect Notes (pg / mysql / sqlite / D1)", link: "/en/patterns/dialects" },
+              {
+                text: "Model Field Declarations",
+                link: "/en/patterns/model-field-declarations",
+              },
+              {
+                text: "The Model Naming Collision",
+                link: "/en/patterns/naming-collision",
+              },
+              {
+                text: "Dialect Notes (pg / mysql / sqlite / D1)",
+                link: "/en/patterns/dialects",
+              },
             ],
           },
         ],
         editLink: {
-          pattern: "https://github.com/kosame-project/kosame-documents/edit/main/docs/:path",
+          pattern:
+            "https://github.com/kosame-project/kosame-documents/edit/main/docs/:path",
           text: "Edit this page on GitHub",
         },
       },
@@ -71,7 +89,10 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: "ガイド", link: "/ja/kosame" },
-          { text: "GitHub", link: "https://github.com/kosame-project/kosame-orm" },
+          {
+            text: "GitHub",
+            link: "https://github.com/kosame-project/kosame-orm",
+          },
           { text: "npm", link: "https://www.npmjs.com/package/kosame" },
         ],
         sidebar: [
@@ -79,8 +100,14 @@ export default defineConfig({
             text: "はじめに",
             items: [
               { text: "Kosameとは?", link: "/ja/kosame" },
-              { text: "インストール", link: "/ja/getting-started/installation" },
-              { text: "クイックスタート", link: "/ja/getting-started/quick-start" },
+              {
+                text: "インストール",
+                link: "/ja/getting-started/installation",
+              },
+              {
+                text: "クイックスタート",
+                link: "/ja/getting-started/quick-start",
+              },
             ],
           },
           {
@@ -94,20 +121,33 @@ export default defineConfig({
               { text: "トランザクション", link: "/ja/essential/transactions" },
               { text: "Mixins", link: "/ja/essential/mixins" },
               { text: "バリデーション", link: "/ja/essential/validation" },
-              { text: "エスケープハッチ（context.raw）", link: "/ja/essential/raw" },
+              {
+                text: "エスケープハッチ（context.raw）",
+                link: "/ja/essential/raw",
+              },
             ],
           },
           {
             text: "パターン",
             items: [
-              { text: "Modelのフィールド宣言", link: "/ja/patterns/model-field-declarations" },
-              { text: "Modelという名前の衝突について", link: "/ja/patterns/naming-collision" },
-              { text: "Dialectごとの注意点（pg / mysql / sqlite / D1）", link: "/ja/patterns/dialects" },
+              {
+                text: "Modelのフィールド宣言",
+                link: "/ja/patterns/model-field-declarations",
+              },
+              {
+                text: "Modelという名前の衝突について",
+                link: "/ja/patterns/naming-collision",
+              },
+              {
+                text: "Dialectごとの注意点（pg / mysql / sqlite / D1）",
+                link: "/ja/patterns/dialects",
+              },
             ],
           },
         ],
         editLink: {
-          pattern: "https://github.com/kosame-project/kosame-documents/edit/main/docs/:path",
+          pattern:
+            "https://github.com/kosame-project/kosame-documents/edit/main/docs/:path",
           text: "GitHubでこのページを編集",
         },
       },
