@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
+import Reveal from "./Reveal.vue";
 
 const props = withDefaults(defineProps<{ lang?: "en" | "ja" }>(), {
   lang: "en",
@@ -89,11 +90,13 @@ async function copyInstall() {
       </div>
       <div class="border-b w-full" />
       <span class="md:h-24 block" />
-      <div class="flex justify-end w-full md:px-24">
-        <div class="bg-gray-800 md:px-4 px-1 py-2">
-          <slot />
+      <Reveal>
+        <div class="flex justify-end w-full md:px-24">
+          <div class="bg-gray-800 md:px-4 px-1 py-2">
+            <slot />
+          </div>
         </div>
-      </div>
+      </Reveal>
     </div>
   </main>
 </template>
