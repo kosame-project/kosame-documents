@@ -25,7 +25,7 @@ export default defineConfig({
       lang: "en",
       link: "/en/",
       themeConfig: {
-        logoLink: "/en/",
+        logoLink: "/",
         nav: [
           { text: "Guide", link: "/en/kosame" },
           {
@@ -91,7 +91,7 @@ export default defineConfig({
       lang: "ja",
       link: "/ja/",
       themeConfig: {
-        logoLink: "/ja/",
+        logoLink: "/",
         nav: [
           { text: "ガイド", link: "/ja/kosame" },
           {

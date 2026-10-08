@@ -1,30 +1,8 @@
 <script setup lang="ts">
-import { onMounted } from "vue";
-
-const STORAGE_KEY = "kosame-docs-locale";
 const locales = [
-  { code: "en", label: "English", href: "/en/" },
-  { code: "ja", label: "日本語", href: "/ja/" },
+  { label: "English", href: "/en/" },
+  { label: "日本語", href: "/ja/" },
 ];
-
-// Send the reader to their language: the last one they picked, else the browser's.
-onMounted(() => {
-  let code: string | null = null;
-  try {
-    code = localStorage.getItem(STORAGE_KEY);
-  } catch {}
-  if (!locales.some((l) => l.code === code)) {
-    code = navigator.language.toLowerCase().startsWith("ja") ? "ja" : "en";
-  }
-  window.location.replace(locales.find((l) => l.code === code)!.href);
-});
-
-// Remember an explicit choice so the next visit goes straight to it.
-function remember(code: string) {
-  try {
-    localStorage.setItem(STORAGE_KEY, code);
-  } catch {}
-}
 </script>
 
 <template>
@@ -44,12 +22,7 @@ function remember(code: string) {
         </div>
       </div>
       <nav>
-        <a
-          v-for="locale in locales"
-          :key="locale.code"
-          :href="locale.href"
-          @click="remember(locale.code)"
-        >
+        <a v-for="locale in locales" :key="locale.href" :href="locale.href">
           {{ locale.label }}
         </a>
       </nav>
