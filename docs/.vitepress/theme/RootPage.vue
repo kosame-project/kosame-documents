@@ -19,7 +19,7 @@ const messages = {
   },
   ja: {
     tagline:
-      "KosameはDrizzleをベースにmodel駆動の開発を提供するデータベースフレームワークです。",
+      "KosameはDrizzleをベースにmodel駆動の開発を提供するデータベースフレームワーク",
     getStarted: "get started",
     href: "/ja/getting-started/installation",
   },
@@ -40,17 +40,24 @@ const t = computed(() => messages[props.lang]);
         </div>
         <div class="flex items-center gap-2">
           <div
-            class="bg-amber-100 py-2 px-3 text-black rounded-md font-serif shadow-2xl border border-gray-700"
+            class="bg-amber-100 py-2 px-3 text-black rounded-md font-serif shadow-2xl border border-gray-700 hover:opacity-70 duration-200"
           >
             <a :href="t.href">
               <button class="text-xl">{{ t.getStarted }}</button>
             </a>
           </div>
-          <nav class="flex gap-1 font-serif text-xl">
+          <!-- <nav class="flex gap-1 font-serif text-xl">
             <a v-for="locale in locales" :key="locale.href" :href="locale.href">
               {{ locale.label }}
             </a>
-          </nav>
+          </nav> -->
+          <div
+            class="border border-amber-100 py-2 px-3 hover:opacity-70 duration-200"
+          >
+            <a href="https://github.com/kosame-project/kosame-model">
+              repository
+            </a>
+          </div>
         </div>
       </div>
     </div>

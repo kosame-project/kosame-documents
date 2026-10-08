@@ -14,7 +14,10 @@ export default defineConfig({
   themeConfig: {
     logo: "/logo.png",
     socialLinks: [
-      { icon: "github", link: "https://github.com/kosame-project/kosame-orm" },
+      {
+        icon: "github",
+        link: "https://github.com/kosame-project/kosame-model",
+      },
     ],
     search: { provider: "local" },
   },
@@ -30,7 +33,7 @@ export default defineConfig({
           { text: "Guide", link: "/kosame" },
           {
             text: "GitHub",
-            link: "https://github.com/kosame-project/kosame-orm",
+            link: "https://github.com/kosame-project/kosame-model",
           },
           { text: "npm", link: "https://www.npmjs.com/package/kosame" },
         ],
