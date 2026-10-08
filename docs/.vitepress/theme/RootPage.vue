@@ -85,7 +85,11 @@ async function copyInstall() {
           </div>
         </div>
         <div class="border-b w-full" />
-        <slot />
+        <div class="flex justify-end w-full">
+          <div class="bg-gray-800 px-4 py-2">
+            <slot />
+          </div>
+        </div>
       </div>
     </div>
   </main>
