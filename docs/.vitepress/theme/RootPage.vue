@@ -20,7 +20,7 @@ const messages = {
   ja: {
     tagline:
       "KosameはDrizzleをベースにmodel駆動の開発を提供するデータベースフレームワークです。",
-    getStarted: "はじめる",
+    getStarted: "get started",
     href: "/ja/getting-started/installation",
   },
 };
