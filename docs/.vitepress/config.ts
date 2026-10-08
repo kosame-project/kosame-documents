@@ -14,7 +14,10 @@ export default defineConfig({
   themeConfig: {
     logo: "/logo.png",
     socialLinks: [
-      { icon: "github", link: "https://github.com/kosame-project/kosame-orm" },
+      {
+        icon: "github",
+        link: "https://github.com/kosame-project/kosame-model",
+      },
     ],
     search: { provider: "local" },
   },
@@ -23,13 +26,13 @@ export default defineConfig({
     en: {
       label: "English",
       lang: "en",
-      link: "/en/",
+      link: "/",
       themeConfig: {
         nav: [
           { text: "Guide", link: "/en/kosame" },
           {
             text: "GitHub",
-            link: "https://github.com/kosame-project/kosame-orm",
+            link: "https://github.com/kosame-project/kosame-model",
           },
           { text: "npm", link: "https://www.npmjs.com/package/kosame" },
         ],
@@ -88,13 +91,13 @@ export default defineConfig({
     ja: {
       label: "日本語",
       lang: "ja",
-      link: "/ja/",
+      link: "/",
       themeConfig: {
         nav: [
           { text: "ガイド", link: "/ja/kosame" },
           {
             text: "GitHub",
-            link: "https://github.com/kosame-project/kosame-orm",
+            link: "https://github.com/kosame-project/kosame-model",
           },
           { text: "npm", link: "https://www.npmjs.com/package/kosame" },
         ],
