@@ -19,7 +19,7 @@ const messages = {
   },
   ja: {
     tagline:
-      "KosameはDrizzleをベースにmodel駆動の開発を提供するデータベースフレームワーク",
+      "Drizzleをベースにmodel駆動の開発を提供するデータベースフレームワーク",
     getStarted: "Get Started",
     href: "/ja/getting-started/installation",
   },
@@ -43,7 +43,7 @@ async function copyInstall() {
   <main>
     <div class="w-full">
       <div
-        class="flex flex-col gap-4 items-center justify-center py-12 md:px-24"
+        class="flex flex-col gap-4 items-center justify-center py-12 md:px-24 px-5"
       >
         <img src="/logo.png" alt="Kosame Logo" class="w-120" />
         <div class="text-2xl font-semibold">
@@ -84,6 +84,7 @@ async function copyInstall() {
             </button>
           </div>
         </div>
+        <div class="border-b w-full" />
       </div>
     </div>
   </main>
