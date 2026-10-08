@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ref } from "vue";
 
 const props = withDefaults(defineProps<{ lang?: "en" | "ja" }>(), {
   lang: "en",
@@ -26,6 +26,17 @@ const messages = {
 };
 
 const t = computed(() => messages[props.lang]);
+
+const installCommand = "bun add kosame";
+const copied = ref(false);
+
+async function copyInstall() {
+  try {
+    await navigator.clipboard.writeText(installCommand);
+    copied.value = true;
+    setTimeout(() => (copied.value = false), 1500);
+  } catch {}
+}
 </script>
 
 <template>
@@ -58,6 +69,16 @@ const t = computed(() => messages[props.lang]);
               GitHub
             </a>
           </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <pre class="py-2 px-2"><code>{{ installCommand }}</code></pre>
+          <button
+            type="button"
+            class="border border-amber-100 py-1 px-2 text-sm hover:opacity-70 duration-200"
+            @click="copyInstall"
+          >
+            {{ copied ? "Copied!" : "Copy" }}
+          </button>
         </div>
       </div>
     </div>
