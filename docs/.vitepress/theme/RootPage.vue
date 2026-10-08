@@ -15,6 +15,9 @@ const locales = [
           Kosame is a database framework based on Drizzle that supports
           model-driven development.
         </div>
+        <div class="bg-amber-100 py-2 px-3 text-black rounded-md font-serif">
+          <button class="text-xl">get started</button>
+        </div>
       </div>
       <nav>
         <a v-for="locale in locales" :key="locale.href" :href="locale.href">
