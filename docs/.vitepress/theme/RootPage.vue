@@ -40,7 +40,7 @@ async function copyInstall() {
 </script>
 
 <template>
-  <main>
+  <main class="root-page">
     <div class="w-full">
       <div
         class="flex flex-col gap-4 items-center justify-center py-12 md:px-24 px-5"
@@ -90,3 +90,9 @@ async function copyInstall() {
     </div>
   </main>
 </template>
+
+<style>
+.root-page [class*="language-"] > span.lang {
+  display: none;
+}
+</style>
