@@ -8,4 +8,14 @@ title: kosame
 import RootPage from "./.vitepress/theme/RootPage.vue";
 </script>
 
-<RootPage />
+<RootPage>
+
+```ts
+import { Model } from "kosame";
+
+class User extends Model {
+  static table = "users";
+}
+```
+
+</RootPage>

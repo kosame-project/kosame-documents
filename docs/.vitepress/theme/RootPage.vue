@@ -85,6 +85,7 @@ async function copyInstall() {
           </div>
         </div>
         <div class="border-b w-full" />
+        <slot />
       </div>
     </div>
   </main>
