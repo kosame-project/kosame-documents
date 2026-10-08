@@ -1,0 +1,4 @@
+/* Preflight is intentionally omitted: it would reset VitePress's own styles. */
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);

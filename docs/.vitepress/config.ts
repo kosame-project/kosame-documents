@@ -1,3 +1,4 @@
+import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "vitepress";
 
 export default defineConfig({
@@ -5,6 +6,8 @@ export default defineConfig({
   description: "A Drizzle-based ORM with a model-driven approach.",
   cleanUrls: true,
   lastUpdated: true,
+
+  vite: { plugins: [tailwindcss()] },
 
   head: [["link", { rel: "icon", type: "image/svg", href: "/favicon.svg" }]],
 
