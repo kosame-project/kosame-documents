@@ -7,17 +7,20 @@ const locales = [
 
 <template>
   <main>
-    <img src="/logo.png" alt="kosame" width="214" height="70" />
-
-    <p>
-      KosameはDrizzleをベースにmodel駆動の開発を提供するデータベースフレームワークです。
-      Drizzleのsqlライクな書き方、Drizzleの軽量さを残しより開発しやすくすることができます、そして既存のDrizzleで構築されたDBスキーマにも適用させることができ複雑になる場合などの使用ではKosameのmodel駆動の開発の力を強く発揮します。
-    </p>
-
-    <nav>
-      <a v-for="locale in locales" :key="locale.href" :href="locale.href">
-        {{ locale.label }}
-      </a>
-    </nav>
+    <div class="w-full">
+      <div
+        class="flex flex-col gap-4 items-center justify-center py-12 md:px-24"
+      >
+        <img src="/logo.png" alt="kosame" width="214" height="70" />
+        <div class="text-2xl font-serif">
+          KosameはDrizzleをベースにmodel駆動の開発を提供するデータベースフレームワークです。
+        </div>
+      </div>
+      <nav>
+        <a v-for="locale in locales" :key="locale.href" :href="locale.href">
+          {{ locale.label }}
+        </a>
+      </nav>
+    </div>
   </main>
 </template>
