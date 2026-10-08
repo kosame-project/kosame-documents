@@ -16,7 +16,9 @@ const locales = [
           model-driven development.
         </div>
         <div class="bg-amber-100 py-2 px-3 text-black rounded-md font-serif">
-          <button class="text-xl">get started</button>
+          <a href="/en/getting-started/installation">
+            <button class="text-xl">get started</button>
+          </a>
         </div>
       </div>
       <nav>
