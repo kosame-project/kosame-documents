@@ -11,9 +11,9 @@ const locales = [
       <div
         class="flex flex-col gap-4 items-center justify-center py-12 md:px-24"
       >
-        <img src="/logo.png" alt="kosame" width="214" height="70" />
         <div class="text-2xl font-serif">
-          KosameはDrizzleをベースにmodel駆動の開発を提供するデータベースフレームワークです。
+          Kosame is a database framework based on Drizzle that supports
+          model-driven development.
         </div>
       </div>
       <nav>
