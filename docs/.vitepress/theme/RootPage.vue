@@ -16,7 +16,9 @@ const locales = [
           model-driven development.
         </div>
         <div class="flex items-center gap-2">
-          <div class="bg-amber-100 py-2 px-3 text-black rounded-md font-serif">
+          <div
+            class="bg-amber-100 py-2 px-3 text-black rounded-md font-serif shadow-2xl border border-gray-700"
+          >
             <a href="/en/getting-started/installation">
               <button class="text-xl">get started</button>
             </a>
