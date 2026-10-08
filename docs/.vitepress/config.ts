@@ -9,7 +9,25 @@ export default defineConfig({
 
   vite: { plugins: [tailwindcss()] },
 
-  head: [["link", { rel: "icon", type: "image/svg", href: "/favicon.svg" }]],
+  head: [
+    ["link", { rel: "icon", type: "image/svg", href: "/favicon.svg" }],
+    ["link", { rel: "preconnect", href: "https://fonts.googleapis.com" }],
+    [
+      "link",
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossorigin: "",
+      },
+    ],
+    [
+      "link",
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap",
+      },
+    ],
+  ],
 
   themeConfig: {
     logo: "/logo.png",

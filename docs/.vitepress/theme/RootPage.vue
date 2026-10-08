@@ -14,13 +14,13 @@ const messages = {
   en: {
     tagline:
       "Kosame is a database framework based on Drizzle that supports model-driven development.",
-    getStarted: "get started",
+    getStarted: "Get Started",
     href: "/getting-started/installation",
   },
   ja: {
     tagline:
       "KosameはDrizzleをベースにmodel駆動の開発を提供するデータベースフレームワーク",
-    getStarted: "get started",
+    getStarted: "Get Started",
     href: "/ja/getting-started/installation",
   },
 };
@@ -40,10 +40,10 @@ const t = computed(() => messages[props.lang]);
         </div>
         <div class="flex items-center gap-2">
           <div
-            class="bg-amber-100 py-2 px-3 text-black rounded-md font-semibold shadow-2xl border border-gray-700 hover:opacity-70 duration-200"
+            class="bg-amber-100 py-2 px-3 text-black rounded-md shadow-2xl border border-gray-700 hover:opacity-70 duration-200"
           >
             <a :href="t.href">
-              <button class="text-xl">{{ t.getStarted }}</button>
+              <button class="font-bold">{{ t.getStarted }}</button>
             </a>
           </div>
           <!-- <nav class="flex gap-1 font-serif text-xl">
@@ -55,7 +55,7 @@ const t = computed(() => messages[props.lang]);
             class="border border-amber-100 py-2 px-3 hover:opacity-70 duration-200"
           >
             <a href="https://github.com/kosame-project/kosame-model">
-              gitHub
+              GitHub
             </a>
           </div>
         </div>
