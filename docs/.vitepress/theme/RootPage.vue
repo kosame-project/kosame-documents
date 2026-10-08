@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const locales = [
-  { label: "English", href: "/en/" },
+  { label: "English", href: "/" },
   { label: "日本語", href: "/ja/" },
 ];
 </script>
@@ -20,7 +20,7 @@ const locales = [
           <div
             class="bg-amber-100 py-2 px-3 text-black rounded-md font-serif shadow-2xl border border-gray-700"
           >
-            <a href="/en/getting-started/installation">
+            <a href="/getting-started/installation">
               <button class="text-xl">get started</button>
             </a>
           </div>
