@@ -51,7 +51,7 @@ async function copyInstall() {
         </div>
         <div class="flex items-center gap-2">
           <div
-            class="bg-amber-100 py-2 px-3 text-black rounded-md shadow-2xl border border-gray-700 hover:opacity-70 duration-200"
+            class="bg-amber-100 py-2 px-3 text-black shadow-2xl border border-gray-700 hover:opacity-70 duration-200"
           >
             <a :href="t.href">
               <button class="font-bold">{{ t.getStarted }}</button>
@@ -71,14 +71,18 @@ async function copyInstall() {
           </div>
         </div>
         <div class="flex items-center gap-2">
-          <pre class="py-2 px-2"><code>{{ installCommand }}</code></pre>
-          <button
-            type="button"
-            class="border border-amber-100 py-1 px-2 text-sm hover:opacity-70 duration-200"
-            @click="copyInstall"
-          >
-            {{ copied ? "Copied!" : "Copy" }}
-          </button>
+          <pre
+            class="py-2 px-2 bg-gray-500"
+          ><code>{{ installCommand }}</code></pre>
+          <div class="bg-gray-700 p-2 text-white">
+            <button
+              type="button"
+              class="border border-amber-100 text-sm hover:opacity-70 duration-200"
+              @click="copyInstall"
+            >
+              {{ copied ? "Copied!" : "Copy" }}
+            </button>
+          </div>
         </div>
       </div>
     </div>
