@@ -9,54 +9,76 @@ export default defineConfig({
 
   vite: { plugins: [tailwindcss()] },
 
-  head: [["link", { rel: "icon", type: "image/svg", href: "/favicon.svg" }]],
+  head: [
+    ["link", { rel: "icon", type: "image/svg", href: "/favicon.svg" }],
+    ["link", { rel: "preconnect", href: "https://fonts.googleapis.com" }],
+    [
+      "link",
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossorigin: "",
+      },
+    ],
+    [
+      "link",
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap",
+      },
+    ],
+  ],
 
   themeConfig: {
     logo: "/logo.png",
     socialLinks: [
-      { icon: "github", link: "https://github.com/kosame-project/kosame-orm" },
+      {
+        icon: "github",
+        link: "https://github.com/kosame-project/kosame-model",
+      },
     ],
     search: { provider: "local" },
   },
 
   locales: {
-    en: {
+    root: {
       label: "English",
       lang: "en",
-      link: "/en/",
+      link: "/",
       themeConfig: {
+        logoLink: "/",
         nav: [
-          { text: "Guide", link: "/en/kosame" },
+          { text: "Docs", link: "/kosame" },
           {
             text: "GitHub",
-            link: "https://github.com/kosame-project/kosame-orm",
+            link: "https://github.com/kosame-project/kosame-model",
           },
-          { text: "npm", link: "https://www.npmjs.com/package/kosame" },
+          // { text: "npm", link: "https://www.npmjs.com/package/kosame" },
         ],
         sidebar: [
           {
             text: "Getting Started",
             items: [
-              { text: "What is Kosame?", link: "/en/kosame" },
+              { text: "What is Kosame?", link: "/kosame" },
               {
                 text: "Installation",
-                link: "/en/getting-started/installation",
+                link: "/getting-started/installation",
               },
-              { text: "Quick Start", link: "/en/getting-started/quick-start" },
+              { text: "Quick Start", link: "/getting-started/quick-start" },
             ],
           },
           {
             text: "Essential",
             items: [
-              { text: "Creating a Model", link: "/en/essential/model" },
-              { text: "Creating a Context", link: "/en/essential/context" },
-              { text: "CRUD", link: "/en/essential/crud" },
-              { text: "Relations", link: "/en/essential/relations" },
-              { text: "Hooks", link: "/en/essential/hooks" },
-              { text: "Transactions", link: "/en/essential/transactions" },
-              { text: "Mixins", link: "/en/essential/mixins" },
-              { text: "Validation", link: "/en/essential/validation" },
-              { text: "Escape Hatch (context.raw)", link: "/en/essential/raw" },
+              { text: "Creating a Model", link: "/essential/model" },
+              { text: "Creating a Context", link: "/essential/context" },
+              { text: "CRUD", link: "/essential/crud" },
+              { text: "Relations", link: "/essential/relations" },
+              { text: "Hooks", link: "/essential/hooks" },
+              { text: "Transactions", link: "/essential/transactions" },
+              { text: "Mixins", link: "/essential/mixins" },
+              { text: "Validation", link: "/essential/validation" },
+              { text: "Escape Hatch (context.raw)", link: "/essential/raw" },
             ],
           },
           {
@@ -64,15 +86,15 @@ export default defineConfig({
             items: [
               {
                 text: "Model Field Declarations",
-                link: "/en/patterns/model-field-declarations",
+                link: "/patterns/model-field-declarations",
               },
               {
                 text: "The Model Naming Collision",
-                link: "/en/patterns/naming-collision",
+                link: "/patterns/naming-collision",
               },
               {
                 text: "Dialect Notes (pg / mysql / sqlite / D1)",
-                link: "/en/patterns/dialects",
+                link: "/patterns/dialects",
               },
             ],
           },
@@ -90,13 +112,14 @@ export default defineConfig({
       lang: "ja",
       link: "/ja/",
       themeConfig: {
+        logoLink: "/ja/",
         nav: [
-          { text: "ガイド", link: "/ja/kosame" },
+          { text: "Docs", link: "/ja/kosame" },
           {
             text: "GitHub",
             link: "https://github.com/kosame-project/kosame-orm",
           },
-          { text: "npm", link: "https://www.npmjs.com/package/kosame" },
+          // { text: "npm", link: "https://www.npmjs.com/package/kosame" },
         ],
         sidebar: [
           {
