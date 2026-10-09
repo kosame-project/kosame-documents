@@ -48,7 +48,7 @@ export default defineConfig({
       themeConfig: {
         logoLink: "/",
         nav: [
-          { text: "Guide", link: "/kosame" },
+          { text: "Docs", link: "/kosame" },
           {
             text: "GitHub",
             link: "https://github.com/kosame-project/kosame-model",
@@ -114,7 +114,7 @@ export default defineConfig({
       themeConfig: {
         logoLink: "/ja/",
         nav: [
-          { text: "ガイド", link: "/ja/kosame" },
+          { text: "Docs", link: "/ja/kosame" },
           {
             text: "GitHub",
             link: "https://github.com/kosame-project/kosame-orm",
