@@ -94,7 +94,9 @@ async function copyInstall() {
       <span class="md:h-24 block" />
       <Reveal class="w-full md:px-24">
         <div class="flex flex-col justify-center gap-4 items-center">
-          <div class="bg-gray-800 md:px-4 px-1 py-2">
+          <div
+            class="code-card w-full max-w-2xl overflow-hidden rounded-lg border border-gray-700 text-2xl shadow-2xl"
+          >
             <slot />
           </div>
           <div class="text-xl font-bold">
@@ -110,5 +112,22 @@ async function copyInstall() {
 <style>
 .root-page [class*="language-"] > span.lang {
   display: none;
+}
+
+/* The sample is always shown on a dark card, so force Shiki's dark palette
+   even in light mode (the light palette is unreadable on a dark background). */
+.root-page .code-card,
+.root-page .code-card [class*="language-"] {
+  margin: 0;
+  background-color: #24292e;
+}
+.root-page .code-card pre {
+  margin: 0;
+  padding: 1rem 1.5rem;
+}
+.root-page .code-card .shiki,
+.root-page .code-card .shiki span {
+  background-color: transparent !important;
+  color: var(--shiki-dark) !important;
 }
 </style>
