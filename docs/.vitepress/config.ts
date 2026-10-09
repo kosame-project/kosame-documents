@@ -53,7 +53,7 @@ export default defineConfig({
             text: "GitHub",
             link: "https://github.com/kosame-project/kosame-model",
           },
-          { text: "npm", link: "https://www.npmjs.com/package/kosame" },
+          // { text: "npm", link: "https://www.npmjs.com/package/kosame" },
         ],
         sidebar: [
           {
@@ -119,7 +119,7 @@ export default defineConfig({
             text: "GitHub",
             link: "https://github.com/kosame-project/kosame-orm",
           },
-          { text: "npm", link: "https://www.npmjs.com/package/kosame" },
+          // { text: "npm", link: "https://www.npmjs.com/package/kosame" },
         ],
         sidebar: [
           {
