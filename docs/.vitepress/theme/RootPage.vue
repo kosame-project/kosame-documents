@@ -53,7 +53,7 @@ async function copyInstall() {
           </div>
           <div class="flex items-center gap-2">
             <div
-              class="bg-amber-100 py-2 px-3 text-black shadow-2xl border border-gray-700 hover:opacity-70 duration-200"
+              class="bg-white py-2 px-3 text-black shadow-2xl border border-gray-700 hover:opacity-70 duration-200"
             >
               <a :href="t.href">
                 <button class="font-bold">{{ t.getStarted }}</button>
@@ -65,7 +65,7 @@ async function copyInstall() {
             </a>
           </nav> -->
             <div
-              class="border border-amber-100 py-2 px-3 hover:opacity-70 duration-200"
+              class="border border-white py-2 px-3 hover:opacity-70 duration-200"
             >
               <a href="https://github.com/kosame-project/kosame-model">
                 GitHub
@@ -74,15 +74,15 @@ async function copyInstall() {
           </div>
           <div class="flex items-center gap-2">
             <pre
-              class="py-2 px-2 bg-gray-500"
+              class="py-2 px-2 bg-black text-white border border-white"
             ><code>{{ installCommand }}</code></pre>
-            <div class="bg-gray-700 p-2 text-white">
+            <div class="bg-white p-2 text-black">
               <button
                 type="button"
-                class="border border-amber-100 text-sm hover:opacity-70 duration-200"
+                class="border border-gray-500 text-sm hover:opacity-70 duration-200"
                 @click="copyInstall"
               >
-                {{ copied ? "Copied!" : "Copy" }}
+                {{ copied ? "COPIED!" : "COPY" }}
               </button>
             </div>
           </div>
