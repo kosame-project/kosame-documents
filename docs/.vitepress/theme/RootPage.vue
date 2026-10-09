@@ -16,12 +16,14 @@ const messages = {
     tagline:
       "Kosame is a database framework based on Drizzle that supports model-driven development.",
     getStarted: "Get Started",
+    AddModels: "Add a Model class and start building model-driven.",
     href: "/getting-started/installation",
   },
   ja: {
     tagline:
       "Drizzleをベースにmodel駆動の開発を提供するデータベースフレームワーク",
     getStarted: "Get Started",
+    AddModels: "Modelクラスを足すだけで、Model駆動の開発を始められる。",
     href: "/ja/getting-started/installation",
   },
 };
@@ -90,13 +92,13 @@ async function copyInstall() {
       </div>
       <div class="border-b w-full" />
       <span class="md:h-24 block" />
-      <Reveal>
-        <div class="flex justify-end items-center w-full md:px-24">
-          <div class="font-bold text-3xl">
-            Modelクラスを足すだけで、Model駆動の開発を始められる。
-          </div>
+      <Reveal class="w-full md:px-24">
+        <div class="flex flex-col justify-center gap-4 items-center">
           <div class="bg-gray-800 md:px-4 px-1 py-2">
             <slot />
+          </div>
+          <div class="text-xl font-bold">
+            {{ t.AddModels }}
           </div>
         </div>
       </Reveal>
