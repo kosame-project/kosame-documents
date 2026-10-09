@@ -91,12 +91,16 @@ async function copyInstall() {
       <div class="border-b w-full" />
       <span class="md:h-24 block" />
       <Reveal>
-        <div class="flex justify-end w-full md:px-24">
+        <div class="flex justify-end items-center w-full md:px-24">
+          <div class="font-bold text-3xl">
+            Modelクラスを足すだけで、Model駆動の開発を始められる。
+          </div>
           <div class="bg-gray-800 md:px-4 px-1 py-2">
             <slot />
           </div>
         </div>
       </Reveal>
+      <span class="md:h-24 block" />
     </div>
   </main>
 </template>

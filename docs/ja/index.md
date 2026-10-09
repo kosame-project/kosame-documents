@@ -13,9 +13,9 @@ import RootPage from "../.vitepress/theme/RootPage.vue";
 ```ts
 import { Model } from "kosame";
 
-class User extends Model {
-  static table = "users";
+export class User extends Model {
+  static table = usersTable;
 }
 ```
 
-</Rootpage>
+</RootPage>
