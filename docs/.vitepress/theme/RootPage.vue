@@ -114,8 +114,6 @@ async function copyInstall() {
   display: none;
 }
 
-/* The sample is always shown on a dark card, so force Shiki's dark palette
-   even in light mode (the light palette is unreadable on a dark background). */
 .root-page .code-card,
 .root-page .code-card [class*="language-"] {
   margin: 0;
