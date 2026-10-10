@@ -40,13 +40,13 @@ const messages = {
       title: "Close to raw Drizzle",
       body: "Measured against raw Drizzle on PostgreSQL. Where Kosame has a first-class API the cost is within noise; where it needs an extra round trip, it says so.",
       note: "Time per operation relative to raw Drizzle (1.0). Shorter is faster. One run on Apple M3, Bun 1.3, PostgreSQL 17.",
-      legend: { drizzle: "Drizzle", kosame: "Kosame", prisma: "Prisma" },
+      legend: { drizzle: "Drizzle", kosame: "Kosame", raw: "Kosame via context.raw (2 queries)", prisma: "Prisma" },
       rows: [
         { op: "find by id", drizzle: 1, kosame: 0.94, prisma: 1.22 },
         { op: "find by id + include", drizzle: 1, kosame: 1.12, prisma: 1.25 },
         { op: "insert one", drizzle: 1, kosame: 1.02, prisma: 1.15 },
         { op: "update one", drizzle: 1, kosame: 1.63, prisma: 1.49 },
-        { op: "20 roots + relation (one call per root)", drizzle: 1, kosame: 5.31, prisma: 1.72 },
+        { op: "20 roots + relation (one call per root)", drizzle: 1, kosame: 5.31, raw: 1.05, prisma: 1.72 },
       ],
       link: "Full results and method",
       href: "https://github.com/kosame-project/kosame-benchmark",
@@ -97,13 +97,13 @@ const messages = {
       title: "素のDrizzleに近いコスト",
       body: "PostgreSQLで素のDrizzleと比べた結果です。Kosameに専用のAPIがある操作は誤差の範囲で、往復が増える操作は、そのとおり遅くなります。",
       note: "素のDrizzleを1.0としたときの、1操作あたりの時間です。短いほど速い。Apple M3、Bun 1.3、PostgreSQL 17での1回の計測です。",
-      legend: { drizzle: "Drizzle", kosame: "Kosame", prisma: "Prisma" },
+      legend: { drizzle: "Drizzle", kosame: "Kosame", raw: "Kosame(context.raw経由・2クエリ)", prisma: "Prisma" },
       rows: [
         { op: "主キーで取得", drizzle: 1, kosame: 0.94, prisma: 1.22 },
         { op: "主キーで取得 + include", drizzle: 1, kosame: 1.12, prisma: 1.25 },
         { op: "1件insert", drizzle: 1, kosame: 1.02, prisma: 1.15 },
         { op: "1件update", drizzle: 1, kosame: 1.63, prisma: 1.49 },
-        { op: "20件のルート + リレーション(ルートごとに1回呼ぶ)", drizzle: 1, kosame: 5.31, prisma: 1.72 },
+        { op: "20件のルート + リレーション(ルートごとに1回呼ぶ)", drizzle: 1, kosame: 5.31, raw: 1.05, prisma: 1.72 },
       ],
       link: "結果と計測方法",
       href: "https://github.com/kosame-project/kosame-benchmark",
@@ -136,6 +136,8 @@ const drops = Array.from({ length: 28 }, (_, i) => ({
     "--k-s": (0.7 + ((i * 17) % 60) / 100).toFixed(2),
   },
 }));
+
+const barKeys = ["drizzle", "kosame", "raw", "prisma"] as const;
 
 const installCommand = "bun add kosame";
 const copied = ref(false);
@@ -244,9 +246,13 @@ async function copyInstall() {
               </ul>
               <div v-for="r in t.bench.rows" :key="r.op" class="k-row">
                 <div class="k-op">{{ r.op }}</div>
-                <div v-for="key in ['drizzle', 'kosame', 'prisma']" :key="key" class="k-bar">
+                <div
+                  v-for="key in barKeys.filter((k) => r[k] !== undefined)"
+                  :key="key"
+                  class="k-bar"
+                >
                   <span :class="`k-fill k-${key}`" :style="{ '--v': r[key] }" />
-                  <span class="k-val">{{ r[key].toFixed(2) }}×</span>
+                  <span class="k-val">{{ r[key]!.toFixed(2) }}×</span>
                 </div>
               </div>
               <p class="k-note">{{ t.bench.note }}</p>
@@ -578,6 +584,10 @@ async function copyInstall() {
 }
 .root-page .k-kosame {
   background: var(--k-drop);
+}
+.root-page .k-raw {
+  background: color-mix(in srgb, var(--k-drop) 30%, transparent);
+  box-shadow: inset 0 0 0 1px var(--k-drop);
 }
 .root-page .k-prisma {
   background: var(--vp-c-gray-1);
