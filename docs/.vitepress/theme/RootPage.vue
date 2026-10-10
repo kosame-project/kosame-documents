@@ -119,6 +119,18 @@ const messages = {
 
 const t = computed(() => messages[props.lang]);
 
+// Deterministic (no Math.random) so the server-rendered and hydrated markup match.
+const drops = Array.from({ length: 28 }, (_, i) => ({
+  id: i,
+  style: {
+    left: `${(i * 37 + 11) % 100}%`,
+    animationDelay: `-${(((i * 13) % 100) / 10).toFixed(1)}s`,
+    animationDuration: `${(6 + ((i * 7) % 40) / 10).toFixed(1)}s`,
+    "--k-o": (0.35 + ((i * 11) % 50) / 100).toFixed(2),
+    "--k-s": (0.7 + ((i * 17) % 60) / 100).toFixed(2),
+  },
+}));
+
 const installCommand = "bun add kosame";
 const copied = ref(false);
 
@@ -134,9 +146,12 @@ async function copyInstall() {
 <template>
   <main class="root-page">
     <div class="w-full">
-      <div class="h-screen flex items-center justify-center">
+      <div class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="k-rain" aria-hidden="true">
+          <i v-for="d in drops" :key="d.id" class="k-rain-drop" :style="d.style" />
+        </div>
         <div
-          class="flex flex-col gap-4 items-center justify-center py-12 md:px-24 px-5"
+          class="relative z-10 flex flex-col gap-4 items-center justify-center py-12 md:px-24 px-5"
         >
           <img src="/logo.png" alt="Kosame Logo" class="w-120 max-w-full" />
           <div class="text-2xl font-semibold text-center">
@@ -274,6 +289,42 @@ async function copyInstall() {
 
 .root-page [class*="language-"] > span.lang {
   display: none;
+}
+
+/* Rain: the logo's green drops, falling behind the hero. */
+.root-page .k-rain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.root-page .k-rain-drop {
+  position: absolute;
+  top: -24px;
+  width: 6px;
+  height: 14px;
+  border-radius: 999px;
+  background: var(--k-drop);
+  opacity: 0;
+  transform: scale(var(--k-s, 1));
+  animation: k-fall linear infinite;
+}
+@keyframes k-fall {
+  0% {
+    transform: translateY(0) scale(var(--k-s, 1));
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--k-o, 0.6);
+  }
+  100% {
+    transform: translateY(100vh) scale(var(--k-s, 1));
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .root-page .k-rain {
+    display: none;
+  }
 }
 
 /* Sections: copy on the left, evidence (code / table / list) on the right. */
