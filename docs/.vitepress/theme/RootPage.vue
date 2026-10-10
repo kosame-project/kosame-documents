@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
+import HeroLogo from "./HeroLogo.vue";
 import Reveal from "./Reveal.vue";
 
 const props = withDefaults(defineProps<{ lang?: "en" | "ja" }>(), {
@@ -161,7 +162,7 @@ async function copyInstall() {
         <div
           class="relative z-10 flex flex-col gap-4 items-center justify-center py-12 md:px-24 px-5"
         >
-          <img src="/logo.png" alt="Kosame Logo" class="w-120 max-w-full" />
+          <HeroLogo />
           <div class="text-2xl font-semibold text-center">
             {{ t.tagline }}
           </div>
@@ -285,9 +286,11 @@ async function copyInstall() {
 .root-page {
   --k-drop: #72d70e;
   --k-accent: #3a8200;
+  --k-ink: #1e1e1e;
 }
 .dark .root-page {
   --k-accent: #72d70e;
+  --k-ink: #f5f5f5;
 }
 
 .root-page [class*="language-"] > span.lang {
