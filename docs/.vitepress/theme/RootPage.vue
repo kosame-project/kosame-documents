@@ -230,7 +230,7 @@ async function copyInstall() {
 
         <!-- Benchmark -->
         <Reveal>
-          <section class="k-section">
+          <section class="k-section k-wide">
             <div class="k-copy">
               <h2 class="k-title"><i class="k-drop" />{{ t.bench.title }}</h2>
               <p class="k-body">{{ t.bench.body }}</p>
@@ -422,6 +422,11 @@ async function copyInstall() {
   }
 }
 
+/* A section whose evidence needs the full width stacks under its copy. */
+.root-page .k-section.k-wide {
+  grid-template-columns: minmax(0, 1fr);
+}
+
 /* The green drop from the logo marks where each section starts. */
 .root-page .k-title {
   font-family: "Doto", sans-serif;
@@ -558,7 +563,7 @@ async function copyInstall() {
 .root-page .k-fill {
   display: block;
   height: 100%;
-  width: calc(var(--v) / 6 * 100% * 0.8);
+  width: calc(var(--v) / 6 * (100% - 4rem));
   min-width: 2px;
   border-radius: 2px;
 }
