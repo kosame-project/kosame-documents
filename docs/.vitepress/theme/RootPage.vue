@@ -39,13 +39,14 @@ const messages = {
     bench: {
       title: "Close to raw Drizzle",
       body: "Measured against raw Drizzle on PostgreSQL. Where Kosame has a first-class API the cost is within noise; where it needs an extra round trip, it says so.",
-      head: ["Operation", "Kosame vs raw Drizzle"],
+      note: "Time per operation relative to raw Drizzle (1.0). Shorter is faster. One run on Apple M3, Bun 1.3, PostgreSQL 17.",
+      legend: { drizzle: "Drizzle", kosame: "Kosame", prisma: "Prisma" },
       rows: [
-        { op: "find by id", result: "about the same" },
-        { op: "find by id + include", result: "about the same" },
-        { op: "insert one", result: "about the same" },
-        { op: "update one", result: "1.65× slower (extra round trip)" },
-        { op: "20 roots + relation", result: "5.7× slower (one call per root)" },
+        { op: "find by id", drizzle: 1, kosame: 0.96, prisma: 1.2 },
+        { op: "find by id + include", drizzle: 1, kosame: 1.12, prisma: 1.32 },
+        { op: "insert one", drizzle: 1, kosame: 1.1, prisma: 1.21 },
+        { op: "update one", drizzle: 1, kosame: 1.65, prisma: 1.21 },
+        { op: "20 roots + relation (one call per root)", drizzle: 1, kosame: 5.7, prisma: 1.73 },
       ],
       link: "Full results and method",
       href: "https://github.com/kosame-project/kosame-benchmark",
@@ -95,13 +96,14 @@ const messages = {
     bench: {
       title: "素のDrizzleに近いコスト",
       body: "PostgreSQLで素のDrizzleと比べた結果です。Kosameに専用のAPIがある操作は誤差の範囲で、往復が増える操作は、そのとおり遅くなります。",
-      head: ["操作", "素のDrizzleとの比較"],
+      note: "素のDrizzleを1.0としたときの、1操作あたりの時間です。短いほど速い。Apple M3、Bun 1.3、PostgreSQL 17での1回の計測です。",
+      legend: { drizzle: "Drizzle", kosame: "Kosame", prisma: "Prisma" },
       rows: [
-        { op: "主キーで取得", result: "ほぼ同じ" },
-        { op: "主キーで取得 + include", result: "ほぼ同じ" },
-        { op: "1件insert", result: "ほぼ同じ" },
-        { op: "1件update", result: "1.65倍遅い(往復が1回増える)" },
-        { op: "20件のルート + リレーション", result: "5.7倍遅い(ルートごとに1回呼ぶ)" },
+        { op: "主キーで取得", drizzle: 1, kosame: 0.96, prisma: 1.2 },
+        { op: "主キーで取得 + include", drizzle: 1, kosame: 1.12, prisma: 1.32 },
+        { op: "1件insert", drizzle: 1, kosame: 1.1, prisma: 1.21 },
+        { op: "1件update", drizzle: 1, kosame: 1.65, prisma: 1.21 },
+        { op: "20件のルート + リレーション(ルートごとに1回呼ぶ)", drizzle: 1, kosame: 5.7, prisma: 1.73 },
       ],
       link: "結果と計測方法",
       href: "https://github.com/kosame-project/kosame-benchmark",
@@ -234,19 +236,21 @@ async function copyInstall() {
               <p class="k-body">{{ t.bench.body }}</p>
               <a class="k-link" :href="t.bench.href">{{ t.bench.link }}</a>
             </div>
-            <table class="k-table">
-              <thead>
-                <tr>
-                  <th v-for="h in t.bench.head" :key="h">{{ h }}</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="r in t.bench.rows" :key="r.op">
-                  <td>{{ r.op }}</td>
-                  <td>{{ r.result }}</td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="k-chart">
+              <ul class="k-legend">
+                <li v-for="(label, key) in t.bench.legend" :key="key">
+                  <i :class="`k-swatch k-${key}`" />{{ label }}
+                </li>
+              </ul>
+              <div v-for="r in t.bench.rows" :key="r.op" class="k-row">
+                <div class="k-op">{{ r.op }}</div>
+                <div v-for="key in ['drizzle', 'kosame', 'prisma']" :key="key" class="k-bar">
+                  <span :class="`k-fill k-${key}`" :style="{ '--v': r[key] }" />
+                  <span class="k-val">{{ r[key].toFixed(2) }}×</span>
+                </div>
+              </div>
+              <p class="k-note">{{ t.bench.note }}</p>
+            </div>
           </section>
         </Reveal>
 
@@ -508,27 +512,75 @@ async function copyInstall() {
   font-weight: 600;
 }
 
-/* Benchmark table */
-.root-page .k-table {
-  width: 100%;
-  border-collapse: collapse;
-  display: table;
-  margin: 0;
+/* Benchmark chart: bar length is time relative to raw Drizzle (= 1.0). */
+.root-page .k-chart {
+  min-width: 0;
 }
-.root-page .k-table th,
-.root-page .k-table td {
-  text-align: left;
-  padding: 0.75rem 0.5rem 0.75rem 0;
-  border: 0;
-  border-bottom: 1px solid var(--vp-c-divider);
-  background: none;
-}
-.root-page .k-table th {
-  font-weight: 600;
-  color: var(--vp-c-text-2);
+.root-page .k-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  list-style: none;
+  margin: 0 0 1.25rem;
+  padding: 0;
   font-size: 0.85rem;
+  color: var(--vp-c-text-2);
 }
-.root-page .k-table tr {
-  background: none;
+.root-page .k-legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.root-page .k-swatch {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 2px;
+}
+.root-page .k-row {
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--vp-c-divider);
+}
+.root-page .k-row:first-of-type {
+  border-top: 1px solid var(--vp-c-divider);
+}
+.root-page .k-op {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+.root-page .k-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  height: 0.85rem;
+  margin-top: 0.3rem;
+}
+.root-page .k-fill {
+  display: block;
+  height: 100%;
+  width: calc(var(--v) / 6 * 100% * 0.8);
+  min-width: 2px;
+  border-radius: 2px;
+}
+.root-page .k-val {
+  font-size: 0.8rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: var(--vp-c-text-2);
+}
+.root-page .k-drizzle {
+  background: var(--vp-c-text-1);
+}
+.root-page .k-kosame {
+  background: var(--k-drop);
+}
+.root-page .k-prisma {
+  background: var(--vp-c-gray-1);
+}
+.root-page .k-note {
+  margin: 1rem 0 0;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--vp-c-text-3);
 }
 </style>
