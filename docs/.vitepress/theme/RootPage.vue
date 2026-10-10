@@ -324,6 +324,7 @@ async function copyInstall() {
 .root-page .k-btn-primary {
   background: var(--vp-c-text-1);
   color: var(--vp-c-bg);
+  transition-duration: 0.5s;
 }
 .root-page .k-btn-primary:hover {
   background: var(--k-drop);
