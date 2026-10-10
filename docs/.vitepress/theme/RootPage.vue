@@ -11,6 +11,8 @@ const messages = {
     tagline:
       "Kosame is a database framework based on Drizzle that supports model-driven development.",
     getStarted: "Get Started",
+    copy: "Copy",
+    copied: "Copied",
     href: "/getting-started/installation",
     model: {
       title: "Add a Model on top of your Drizzle table",
@@ -65,6 +67,8 @@ const messages = {
     tagline:
       "Drizzleをベースにmodel駆動の開発を提供するデータベースフレームワーク",
     getStarted: "Get Started",
+    copy: "コピー",
+    copied: "コピーしました",
     href: "/ja/getting-started/installation",
     model: {
       title: "DrizzleのTableに、Modelを重ねる",
@@ -157,35 +161,24 @@ async function copyInstall() {
           <div class="text-2xl font-semibold text-center">
             {{ t.tagline }}
           </div>
-          <div class="flex items-center gap-2">
-            <div
-              class="bg-white py-2 px-3 text-black shadow-2xl border border-gray-700 hover:opacity-70 duration-200"
+          <div class="k-actions">
+            <a class="k-btn k-btn-primary" :href="t.href">{{ t.getStarted }}</a>
+            <a
+              class="k-btn k-btn-secondary"
+              href="https://github.com/kosame-project/kosame-model"
             >
-              <a :href="t.href">
-                <button class="font-bold">{{ t.getStarted }}</button>
-              </a>
-            </div>
-            <div
-              class="border border-white py-2 px-3 hover:opacity-70 duration-200"
-            >
-              <a href="https://github.com/kosame-project/kosame-model">
-                GitHub
-              </a>
-            </div>
+              GitHub
+            </a>
           </div>
-          <div class="flex items-center gap-2">
-            <pre
-              class="py-2 px-2 bg-black text-white border border-white"
-            ><code>{{ installCommand }}</code></pre>
-            <div class="bg-white p-2 text-black">
-              <button
-                type="button"
-                class="border border-gray-500 text-sm hover:opacity-70 duration-200"
-                @click="copyInstall"
-              >
-                {{ copied ? "COPIED!" : "COPY" }}
-              </button>
-            </div>
+          <div class="k-install">
+            <code>{{ installCommand }}</code>
+            <button
+              type="button"
+              :class="{ 'k-copied': copied }"
+              @click="copyInstall"
+            >
+              {{ copied ? t.copied : t.copy }}
+            </button>
           </div>
         </div>
       </div>
@@ -289,6 +282,84 @@ async function copyInstall() {
 
 .root-page [class*="language-"] > span.lang {
   display: none;
+}
+
+/* Hero actions. Primary is ink on paper (inverts in dark mode); the logo's
+   green only appears when you point at it. */
+.root-page .k-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+.root-page .k-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.65rem 1.4rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid var(--vp-c-text-1);
+  transition:
+    background-color 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+}
+.root-page .k-btn-primary {
+  background: var(--vp-c-text-1);
+  color: var(--vp-c-bg);
+}
+.root-page .k-btn-primary:hover {
+  background: var(--k-drop);
+  border-color: var(--k-drop);
+  color: #1e1e1e;
+}
+.root-page .k-btn-secondary {
+  background: transparent;
+  color: var(--vp-c-text-1);
+}
+.root-page .k-btn-secondary:hover {
+  border-color: var(--k-drop);
+  box-shadow: inset 0 -3px 0 var(--k-drop);
+}
+.root-page .k-btn:focus-visible,
+.root-page .k-install button:focus-visible {
+  outline: 2px solid var(--k-accent);
+  outline-offset: 2px;
+}
+
+/* Install command and its copy button share one outline. */
+.root-page .k-install {
+  display: flex;
+  align-items: stretch;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 0.5rem;
+  background: var(--vp-c-bg-soft);
+  overflow: hidden;
+}
+.root-page .k-install code {
+  padding: 0.55rem 1rem;
+  background: none;
+  color: var(--vp-c-text-1);
+  font-size: 0.95rem;
+}
+.root-page .k-install button {
+  padding: 0 1rem;
+  border-left: 1px solid var(--vp-c-divider);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--vp-c-text-2);
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+.root-page .k-install button:hover {
+  background: var(--vp-c-bg-mute);
+  color: var(--vp-c-text-1);
+}
+.root-page .k-install button.k-copied {
+  color: var(--k-accent);
 }
 
 /* Rain: the logo's green drops, falling behind the hero. */
