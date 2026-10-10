@@ -9,7 +9,6 @@ import RootPage from "./.vitepress/theme/RootPage.vue";
 </script>
 
 <RootPage>
-<template #model>
 
 ```ts
 import { Model } from "kosame";
@@ -19,20 +18,4 @@ export class User extends Model {
 }
 ```
 
-</template>
-<template #hooks>
-
-```ts
-export class User extends Model {
-  static table = usersTable;
-
-  override async beforeCreate() {
-    if (!this.name.includes("kosame")) {
-      throw new Error("Name must contain kosame");
-    }
-  }
-}
-```
-
-</template>
 </RootPage>
