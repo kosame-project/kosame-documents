@@ -310,8 +310,10 @@ async function copyInstall() {
   display: inline-flex;
   align-items: center;
   padding: 0.65rem 1.4rem;
-  border-radius: 0.5rem;
-  font-weight: 600;
+  border-radius: 0;
+  font-family: "Doto", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
   text-decoration: none;
   border: 1px solid var(--vp-c-text-1);
   transition:
@@ -347,7 +349,7 @@ async function copyInstall() {
   display: flex;
   align-items: stretch;
   border: 1px solid var(--vp-c-divider);
-  border-radius: 0.5rem;
+  border-radius: 0;
   background: var(--vp-c-bg-soft);
   overflow: hidden;
 }
@@ -360,9 +362,10 @@ async function copyInstall() {
 .root-page .k-install button {
   padding: 0 1rem;
   border-left: 1px solid var(--vp-c-divider);
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--vp-c-text-2);
+  font-family: "Doto", sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--vp-c-text-1);
   transition:
     background-color 0.2s,
     color 0.2s;
