@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, onBeforeUnmount, onMounted, ref } from "vue";
 import HeroLogo from "./HeroLogo.vue";
 import Reveal from "./Reveal.vue";
 
@@ -127,16 +127,42 @@ const messages = {
 const t = computed(() => messages[props.lang]);
 
 // Deterministic (no Math.random) so the server-rendered and hydrated markup match.
-const drops = Array.from({ length: 28 }, (_, i) => ({
-  id: i,
-  style: {
-    left: `${(i * 37 + 11) % 100}%`,
-    animationDelay: `-${(((i * 13) % 100) / 10).toFixed(1)}s`,
-    animationDuration: `${(6 + ((i * 7) % 40) / 10).toFixed(1)}s`,
-    "--k-o": (0.35 + ((i * 11) % 50) / 100).toFixed(2),
-    "--k-s": (0.7 + ((i * 17) % 60) / 100).toFixed(2),
-  },
-}));
+function makeDrops(count: number, strength: number) {
+  return Array.from({ length: count }, (_, i) => ({
+    id: i,
+    style: {
+      left: `${(i * 37 + 11) % 100}%`,
+      "--delay": `-${(((i * 13) % 100) / 10).toFixed(1)}s`,
+      "--dur": `${(6 + ((i * 7) % 40) / 10).toFixed(1)}s`,
+      "--k-o": ((0.35 + ((i * 11) % 50) / 100) * strength).toFixed(2),
+      "--k-s": (0.7 + ((i * 17) % 60) / 100).toFixed(2),
+    },
+  }));
+}
+
+// Hero rain lands on the hero's bottom edge; the longer rain behind the
+// sections lands at the very bottom of the page.
+const heroDrops = makeDrops(28, 1);
+const pageDrops = makeDrops(90, 0.7);
+
+// The page rain falls the same speed as the hero rain, so its duration scales
+// with how many screens tall the sections are.
+const pageEl = ref<HTMLElement | null>(null);
+const rainScale = ref(3.5);
+let resizeObserver: ResizeObserver | undefined;
+function measureRain() {
+  if (pageEl.value) {
+    rainScale.value = Math.max(1, pageEl.value.offsetHeight / window.innerHeight);
+  }
+}
+onMounted(() => {
+  measureRain();
+  if (pageEl.value) {
+    resizeObserver = new ResizeObserver(measureRain);
+    resizeObserver.observe(pageEl.value);
+  }
+});
+onBeforeUnmount(() => resizeObserver?.disconnect());
 
 const barKeys = ["drizzle", "kosame", "raw", "prisma"] as const;
 
@@ -157,7 +183,10 @@ async function copyInstall() {
     <div class="w-full">
       <div class="relative h-screen flex items-center justify-center overflow-hidden">
         <div class="k-rain" aria-hidden="true">
-          <i v-for="d in drops" :key="d.id" class="k-rain-drop" :style="d.style" />
+          <i v-for="d in heroDrops" :key="d.id" class="k-col" :style="d.style">
+            <b class="k-rain-drop" />
+            <b class="k-ripple" />
+          </i>
         </div>
         <div
           class="relative z-10 flex flex-col gap-4 items-center justify-center py-12 md:px-24 px-5"
@@ -188,7 +217,18 @@ async function copyInstall() {
         </div>
       </div>
 
-      <div class="rain-line mx-auto max-w-5xl px-5 md:px-8">
+      <div ref="pageEl" class="relative">
+        <div
+          class="k-rain"
+          aria-hidden="true"
+          :style="{ '--k-scale': rainScale }"
+        >
+          <i v-for="d in pageDrops" :key="d.id" class="k-col" :style="d.style">
+            <b class="k-rain-drop" />
+            <b class="k-ripple" />
+          </i>
+        </div>
+      <div class="rain-line relative z-10 mx-auto max-w-5xl px-5 md:px-8">
         <!-- Model -->
         <Reveal>
           <section class="k-section">
@@ -277,6 +317,7 @@ async function copyInstall() {
             </ul>
           </section>
         </Reveal>
+      </div>
       </div>
     </div>
   </main>
@@ -379,33 +420,78 @@ async function copyInstall() {
   color: var(--k-accent);
 }
 
-/* Rain: the logo's green drops, falling behind the hero. */
+/* Rain: the logo's green drops fall, then ripple where they land. */
 .root-page .k-rain {
   position: absolute;
   inset: 0;
+  overflow: hidden;
   pointer-events: none;
+  container-type: size;
+}
+.root-page .k-col {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+}
+.root-page .k-rain-drop,
+.root-page .k-ripple {
+  position: absolute;
+  opacity: 0;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: calc(var(--dur) * var(--k-scale, 1));
+  animation-delay: calc(var(--delay) * var(--k-scale, 1));
 }
 .root-page .k-rain-drop {
-  position: absolute;
   top: -24px;
+  left: 0;
   width: 6px;
   height: 14px;
   border-radius: 999px;
   background: var(--k-drop);
-  opacity: 0;
-  transform: scale(var(--k-s, 1));
-  animation: k-fall linear infinite;
+  animation-name: k-fall;
+}
+.root-page .k-ripple {
+  left: 50%;
+  bottom: 2px;
+  width: 30px;
+  height: 9px;
+  margin-left: -15px;
+  border: 1.5px solid var(--k-drop);
+  border-radius: 50%;
+  animation-name: k-ripple;
 }
 @keyframes k-fall {
   0% {
     transform: translateY(0) scale(var(--k-s, 1));
     opacity: 0;
   }
-  10% {
+  6% {
+    opacity: var(--k-o, 0.6);
+  }
+  88% {
+    transform: translateY(calc(100cqh + 10px)) scale(var(--k-s, 1));
+    opacity: var(--k-o, 0.6);
+  }
+  88.5%,
+  100% {
+    transform: translateY(calc(100cqh + 10px)) scale(var(--k-s, 1));
+    opacity: 0;
+  }
+}
+@keyframes k-ripple {
+  0%,
+  88% {
+    transform: scale(0.15);
+    opacity: 0;
+  }
+  89% {
+    transform: scale(0.15);
     opacity: var(--k-o, 0.6);
   }
   100% {
-    transform: translateY(100vh) scale(var(--k-s, 1));
+    transform: scale(1);
     opacity: 0;
   }
 }
