@@ -65,6 +65,7 @@ export default defineConfig({
                 link: "/getting-started/installation",
               },
               { text: "Quick Start", link: "/getting-started/quick-start" },
+              { text: "Agent Skill", link: "/getting-started/agent-skill" },
             ],
           },
           {
@@ -133,6 +134,10 @@ export default defineConfig({
               {
                 text: "クイックスタート",
                 link: "/ja/getting-started/quick-start",
+              },
+              {
+                text: "エージェント用スキル",
+                link: "/ja/getting-started/agent-skill",
               },
             ],
           },
